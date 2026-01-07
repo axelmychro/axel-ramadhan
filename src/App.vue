@@ -10,8 +10,19 @@ import NewSection from './components/NewSection.vue'
     <SiteHeader />
 
     <main>
-      <NewSection id="home" header=""> hello </NewSection>
-      <NewSection id="projects"> world </NewSection>
+      <NewSection id="home" header="">
+        <template #>
+          <h1 class="flex-1">hello title</h1>
+        </template>
+      </NewSection>
+
+      <NewSection id="projects"> <h2>world</h2> </NewSection>
+
+      <NewSection id="about"> <h2>world</h2> </NewSection>
+
+      <NewSection id="timeline"> <h2>world</h2> </NewSection>
+
+      <NewSection id="contact"> <h2>world</h2> </NewSection>
     </main>
     <Overlay />
   </div>

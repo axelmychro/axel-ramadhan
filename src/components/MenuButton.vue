@@ -15,12 +15,12 @@ const { showMenu } = useMenuState()
     <Icon
       v-if="showMenu"
       icon="line-md:menu-to-close-alt-transition"
-      class="min-h-8 min-w-8"
+      class="min-h-8 min-w-8 backdrop-blur-xs"
     />
     <Icon
       v-else
       icon="line-md:close-to-menu-alt-transition"
-      class="min-h-8 min-w-8"
+      class="min-h-8 min-w-8 backdrop-blur-xs"
     />
   </button>
 </template>
