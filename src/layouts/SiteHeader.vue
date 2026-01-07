@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { navigationLinks, yourProfile } from '../data/siteConfig'
+import { Icon } from '@iconify/vue'
+import { navigationLinks, siteConfig } from '../data/siteConfig'
 </script>
 
 <template>
   <header
     class="border-default fixed top-0 right-0 left-0 z-10 flex min-h-16 min-w-full items-center border-b-2 pr-12 backdrop-blur-xs"
   >
-    <nav class="flex flex-1 items-center justify-end p-2">
-      <a class="font-display flex-1 text-2xl leading-none" href="#">{{
-        yourProfile.name
-      }}</a>
+    <nav class="flex items-center p-2">
+      <a href="#" :aria-label="`${siteConfig.name}, home`"
+        ><Icon aria-hidden="true" class="size-8" icon="gg:shape-rhombus"
+      /></a>
       <div class="flex items-center not-lg:hidden">
         <a
           v-for="link in navigationLinks"

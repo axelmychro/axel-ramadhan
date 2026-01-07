@@ -19,7 +19,7 @@ const isDark = useDark()
 
   <nav
     :class="showMenu ? 'translate-x-0' : 'translate-x-52'"
-    class="fixed top-0 right-0 bottom-0 z-20 min-w-64 border-l-2 transition-transform duration-500 ease-out"
+    class="fixed top-0 right-0 bottom-0 z-20 min-w-64 overflow-auto border-l-2 transition-transform duration-500 ease-out"
   >
     <div
       :class="showMenu ? 'bg-primary' : ''"
@@ -33,12 +33,12 @@ const isDark = useDark()
       >
     </div>
 
-    <div class="size-full backdrop-blur-xs">
+    <div class="">
       <a
         v-for="link in navigationLinks"
         @click="showMenu = false"
         :class="showMenu ? 'bg-default' : 'bg-transparent'"
-        class="flex gap-2 truncate border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
+        class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
         :key="link.to"
         :href="link.to"
         ><Icon class="bg-primary border" :icon="link.icon" />

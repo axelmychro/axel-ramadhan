@@ -6,7 +6,8 @@ export const yourProfile = {
   links: [
     {
       label: 'Email',
-      to: 'mailto:axel.ramadhan.js@gmail.com',
+      alt: 'Email me',
+      to: 'mailto:axelmychro@gmail.com',
       icon: 'mdi:email-edit',
     },
     {
@@ -16,6 +17,7 @@ export const yourProfile = {
     },
     {
       label: 'LinkedIn',
+      alt: 'Connect?',
       to: 'https:/linkedin.com/in/axelramadhan',
       icon: 'mdi:linkedin',
     },

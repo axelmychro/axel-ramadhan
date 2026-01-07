@@ -60,9 +60,14 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
+  --breakpoint-xs: 320px;
+
   --font-display: 'Dela Gothic One', display;
   --font-sans: 'Zain', sans-serif;
   --font-serif: 'Oswald', serif;
+
+  --color-js: #f7df1e;
+  --color-ts: #3178c6;
 }
 :root {
   font-synthesis: none;
@@ -83,9 +88,6 @@ html {
 .bg-primary {
   @apply bg-[#F7DF1E] dark:bg-[#3178C6];
 }
-.text-primary {
-  @apply text-[#F7DF1E] dark:text-[#3178C6];
-}
 
 .bg-default {
   @apply bg-white dark:bg-zinc-800;
@@ -99,4 +101,8 @@ html {
 
 .border-default {
   @apply border-zinc-800 dark:border-zinc-100;
+}
+
+.attention-primary {
+  @apply hover:bg-js focus:bg-js dark:hover:bg-ts dark:focus:bg-ts transition duration-500 ease-out hover:scale-105;
 }
