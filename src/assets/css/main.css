@@ -87,6 +87,9 @@ html {
   @apply text-[#F7DF1E] dark:text-[#3178C6];
 }
 
+.bg-default {
+  @apply bg-white dark:bg-zinc-800;
+}
 .bg-invert {
   @apply bg-zinc-800 dark:bg-white;
 }

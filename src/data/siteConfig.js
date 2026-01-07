@@ -1,4 +1,4 @@
-// Configure your profile, links, and projects here
+// Configure the site, your profile, links, and projects here
 export const yourProfile = {
   name: 'Axel Ramadhan',
   bio: 'CS Student, Frontend Developer, Vue.js Enthusiast',
@@ -62,3 +62,8 @@ export const navigationLinks = [
   { label: 'timeline', to: '#timeline', icon: 'mdi:hourglass' },
   { label: 'contact', to: '#contact', icon: 'mdi:paper-airplane-outline' },
 ]
+
+export const siteConfig = {
+  name: 'mychro',
+  url: 'https://axelmychro.my.id',
+}
