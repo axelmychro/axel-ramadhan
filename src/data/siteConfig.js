@@ -1,3 +1,5 @@
+import { defineAsyncComponent } from 'vue'
+
 // Configure the site, your profile, links, and projects here
 export const yourProfile = {
   name: 'Axel Ramadhan',
@@ -18,8 +20,9 @@ export const yourProfile = {
     {
       label: 'LinkedIn',
       alt: 'Connect?',
-      to: 'https:/linkedin.com/in/axelramadhan',
+      to: 'https://linkedin.com/in/axelramadhan',
       icon: 'mdi:linkedin',
+      trailingIcon: 'mdi:connect-without-contact',
     },
     {
       label: 'Instragram',
@@ -49,7 +52,7 @@ export const yourProfile = {
       repository: `template-vue-portfolio`,
     },
     {
-      title: 'Krabby Patty Tebing Tinggi',
+      title: 'Kraby Paty Tebing Tinggi',
       description: '',
       date: '2026-01-04',
       repository: `krabypaty-tebingtinggi`,
@@ -57,12 +60,52 @@ export const yourProfile = {
   ],
 }
 
+const sectionMap = {
+  home: () => import('../sections/HomeSection.vue'),
+  projects: () => import('../sections/ProjectsSection.vue'),
+  about: () => import('../sections/AboutSection.vue'),
+  timeline: () => import('../sections/TimelineSection.vue'),
+  contact: () => import('../sections/ContactSection.vue'),
+}
 export const navigationLinks = [
-  { label: 'home', to: '#home', icon: 'gg:shape-rhombus' },
-  { label: 'projects', to: '#projects', icon: 'mdi:cube-outline' },
-  { label: 'about', to: '#about', icon: 'mdi:triangle-outline' },
-  { label: 'timeline', to: '#timeline', icon: 'mdi:hourglass' },
-  { label: 'contact', to: '#contact', icon: 'mdi:paper-airplane-outline' },
+  {
+    label: 'Home',
+    to: '#home',
+    icon: 'gg:shape-rhombus',
+    component: defineAsyncComponent(sectionMap.home),
+    header: true,
+  },
+  {
+    label: 'Projects',
+    to: '#projects',
+    icon: 'mdi:cube-outline',
+    trailingIcon: 'mdi:arrow-right-bold-circle',
+    component: defineAsyncComponent(sectionMap.projects),
+    header: false,
+  },
+  {
+    label: 'About',
+    to: '#about',
+    icon: 'mdi:triangle-outline',
+    trailingIcon: 'mdi:magnify-expand',
+    component: defineAsyncComponent(sectionMap.about),
+    header: false,
+  },
+  {
+    label: 'Timeline',
+    to: '#timeline',
+    icon: 'mdi:hourglass',
+    component: defineAsyncComponent(sectionMap.timeline),
+    header: false,
+  },
+  {
+    label: 'Contact',
+    to: '#contact',
+    icon: 'mdi:paper-airplane-outline',
+    trailingIcon: 'mingcute:cellphone-vibration-line',
+    component: defineAsyncComponent(sectionMap.contact),
+    header: false,
+  },
 ]
 
 export const siteConfig = {

@@ -1,7 +1,6 @@
 import { computed } from 'vue'
-import { yourProfile } from '../data/siteConfig'
 
-export const useProjects = projects => {
+export const useProjects = (projects, links) => {
   const validProjects = computed(() => {
     if (!Array.isArray(projects)) return []
 
@@ -32,7 +31,7 @@ export const useProjects = projects => {
     })
   })
 
-  const githubUrl = yourProfile.links.find(label => label === 'Github')?.to
+  const githubUrl = links.find(link => link.label === 'Github')?.to
   const repositoryUrl = computed(() => {
     if (!latestProject.value?.repository) return null
     return `${githubUrl}${latestProject.value.repository}`

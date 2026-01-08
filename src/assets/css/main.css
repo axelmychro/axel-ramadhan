@@ -59,50 +59,48 @@
 
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
+
+  --color-primary: #f7df1e;
+}
 @theme {
   --breakpoint-xs: 320px;
 
   --font-display: 'Dela Gothic One', display;
   --font-sans: 'Zain', sans-serif;
   --font-serif: 'Oswald', serif;
+  --font-mono: 'Fira Code', monospace;
 
   --color-js: #f7df1e;
   --color-ts: #3178c6;
-}
-:root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
 
-html {
-  @apply bg-white text-zinc-800;
+  --color-background: #fff;
+  --color-foreground: var(--color-zinc-800);
+
+  --color-primary: var(--color-js);
+  --color-default: #fff;
+  --color-invert: var(--color-zinc-800);
 }
 .dark {
   color-scheme: dark;
-  @apply bg-zinc-800 text-zinc-100;
-}
 
-.bg-primary {
-  @apply bg-[#F7DF1E] dark:bg-[#3178C6];
-}
+  --color-background: var(--color-zinc-800);
+  --color-foreground: #fff;
 
-.bg-default {
-  @apply bg-white dark:bg-zinc-800;
+  --color-primary: var(--color-ts);
+  --color-default: var(--color-zinc-800);
+  --color-invert: #fff;
 }
-.bg-invert {
-  @apply bg-zinc-800 dark:bg-white;
-}
-.text-invert {
-  @apply text-zinc-100 dark:text-zinc-800;
-}
-
-.border-default {
-  @apply border-zinc-800 dark:border-zinc-100;
+html {
+  @apply bg-background text-foreground;
 }
 
 .attention-primary {
-  @apply hover:bg-js focus:bg-js dark:hover:bg-ts dark:focus:bg-ts transition duration-500 ease-out hover:scale-105;
+  @apply hover:bg-primary focus:bg-primary shadow-xs transition duration-500 ease-out hover:scale-103 hover:shadow-md focus:shadow-md active:scale-100;
 }

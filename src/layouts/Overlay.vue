@@ -11,40 +11,42 @@ const isDark = useDark()
 </script>
 
 <template>
-  <div
-    class="fixed top-0 right-0 z-50 flex min-h-16 min-w-12 items-center justify-center lg:hidden"
-  >
-    <MenuButton />
-  </div>
-
   <nav
     :class="showMenu ? 'translate-x-0' : 'translate-x-52'"
     class="fixed top-0 right-0 bottom-0 z-20 min-w-64 overflow-auto border-l-2 transition-transform duration-500 ease-out"
   >
-    <div
+    <span
+      class="fixed top-0 right-0 z-50 flex min-h-16 min-w-12 items-center justify-center lg:hidden"
+    >
+      <MenuButton />
+    </span>
+    <span
       :class="showMenu ? 'bg-primary' : ''"
       class="flex min-h-16 items-center border-b-2 p-2 transition duration-500"
     >
-      <ColorModeSwitch class="border-default" />
+      <ColorModeSwitch class="border-invert" />
       <span
         class="pointer-events-none leading-none font-bold tracking-tighter uppercase select-none"
-        aria-hidden="true"
-        >「{{ isDark ? 'order' : 'chaos' }}」</span
+        >Theme: 「{{ isDark ? 'Order' : 'Chaos' }}」</span
       >
-    </div>
+    </span>
 
-    <div class="">
-      <a
+    <ul>
+      <li
         v-for="link in navigationLinks"
         @click="showMenu = false"
-        :class="showMenu ? 'bg-default' : 'bg-transparent'"
-        class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
         :key="link.to"
-        :href="link.to"
-        ><Icon class="bg-primary border" :icon="link.icon" />
-        {{ link.label }}</a
       >
-    </div>
+        <a
+          :href="link.to"
+          :class="showMenu ? 'bg-default' : 'bg-transparent'"
+          class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
+        >
+          <Icon class="bg-primary border" :icon="link.icon" />
+          {{ link.label }}
+        </a>
+      </li>
+    </ul>
   </nav>
   <div
     :class="showMenu ? '-translate-x-52' : 'translate-x-0'"

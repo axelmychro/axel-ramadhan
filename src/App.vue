@@ -1,10 +1,40 @@
-<script setup lang="ts">
-import Overlay from './layouts/Overlay.vue'
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+import Lenis from 'lenis'
+
 import SiteHeader from './layouts/SiteHeader.vue'
+import Overlay from './layouts/Overlay.vue'
+import { navigationLinks } from './data/siteConfig'
 
-import NewSection from './components/NewSection.vue'
+let lenis
+let rafId
 
-import HomeSection from './sections/HomeSection.vue'
+onMounted(() => {
+  lenis = new Lenis({
+    smooth: true,
+    lerp: 0.09,
+    wheelMultiplier: 0.9,
+  })
+
+  const raf = time => {
+    lenis?.raf(time)
+    rafId = requestAnimationFrame(raf)
+  }
+
+  rafId = requestAnimationFrame(raf)
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault()
+      lenis?.scrollTo(link.getAttribute('href'))
+    })
+  })
+})
+
+onUnmounted(() => {
+  if (rafId) cancelAnimationFrame(rafId)
+  lenis?.destroy()
+})
 </script>
 
 <template>
@@ -12,17 +42,14 @@ import HomeSection from './sections/HomeSection.vue'
     <SiteHeader />
 
     <main>
-      <NewSection id="home" header="">
-        <HomeSection />
+      <NewSection
+        v-for="section in navigationLinks"
+        :key="section.to"
+        :id="section.to.slice(1)"
+        :header="section.header"
+      >
+        <component :is="section.component" />
       </NewSection>
-
-      <NewSection id="projects"> <h2>world</h2> </NewSection>
-
-      <NewSection id="about"> <h2>world</h2> </NewSection>
-
-      <NewSection id="timeline"> <h2>world</h2> </NewSection>
-
-      <NewSection id="contact"> <h2>world</h2> </NewSection>
     </main>
     <Overlay />
   </div>

@@ -17,12 +17,12 @@ import { Icon } from '@iconify/vue'
     @click="switchMode"
   >
     <Icon
-      class="border-default min-h-8 min-w-8 border"
+      class="border-invert min-h-8 min-w-8 border"
       v-if="isDark"
       icon="devicon:typescript"
     />
     <Icon
-      class="border-default min-h-8 min-w-8 border"
+      class="border-invert min-h-8 min-w-8 border"
       v-else
       icon="devicon:javascript"
     />

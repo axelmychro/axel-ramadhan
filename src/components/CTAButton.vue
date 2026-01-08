@@ -1,47 +1,48 @@
 <script setup>
+import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 
 import { navigationLinks, yourProfile } from '../data/siteConfig'
 
-defineProps({
+const props = defineProps({
   section: String,
   profileLink: String,
 })
+
+const navItem = computed(() =>
+  navigationLinks.find(l => l.label === props.section),
+)
+
+const profileItem = computed(() =>
+  yourProfile.links.find(l => l.label === props.profileLink),
+)
 </script>
 
 <template>
   <a
     :class="section ? 'lg:p-6' : ''"
     class="bg-default xs:p-2 attention-primary relative flex max-h-32 min-h-16 max-w-lg min-w-24 flex-1 flex-col justify-center border-2"
-    :href="
-      navigationLinks.find(link => link.label === section)?.to ||
-      yourProfile.links.find(link => link.label === profileLink)?.to
-    "
+    :href="navItem?.to ?? profileItem?.to"
   >
     <span
       :class="section ? 'lg:text-4xl' : ''"
       class="flex gap-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
-      ><Icon
-        :icon="
-          navigationLinks.find(icon => icon.label === section)?.icon ||
-          yourProfile.links.find(icon => icon.label === profileLink)?.icon
-        "
-      />
-      {{
-        navigationLinks.find(label => label.label === section)?.label ||
-        yourProfile.links.find(icon => icon.label === profileLink)?.alt
-      }}
+    >
+      <Icon :icon="navItem?.icon ?? profileItem?.icon" />
+      {{ navItem?.label ?? profileItem?.alt }}
     </span>
 
-    <div>
-      <slot></slot>
-    </div>
-
     <Icon
+      aria-hidden="true"
       class="absolute size-12 self-end opacity-20"
       :icon="
-        section ? 'mdi:arrow-right-circle-outline' : 'mdi:arrow-right-circle'
+        (navItem?.trailingIcon ?? profileItem?.trailingIcon) ||
+        'mdi:arrow-right-bold-circle-outline'
       "
     />
+
+    <div>
+      <slot />
+    </div>
   </a>
 </template>

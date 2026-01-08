@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <section
-    class="relative min-h-screen min-w-full overflow-hidden bg-linear-to-b from-cyan-50 via-sky-50 to-cyan-50 dark:from-neutral-950 dark:via-gray-950 dark:to-neutral-950"
+    class="relative min-h-[calc(100vh-8rem)] min-w-full overflow-hidden bg-linear-to-b from-cyan-50 via-sky-50 to-cyan-50 dark:from-neutral-950 dark:via-gray-950 dark:to-neutral-950"
     :id="id"
   >
     <div
@@ -15,7 +15,7 @@ defineProps({
       class="min-h-16 min-w-full"
     />
 
-    <div class="flex min-h-[calc(100vh-4rem)] min-w-full">
+    <div class="flex min-h-[calc(100vh-8rem)] min-w-full">
       <div class="max-w-[calc(100vw-3rem)] flex-1">
         <slot />
       </div>
