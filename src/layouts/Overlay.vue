@@ -11,18 +11,18 @@ const isDark = useDark()
 </script>
 
 <template>
+  <span
+    class="fixed top-0 right-0 z-50 flex min-h-16 min-w-12 items-center justify-center lg:hidden"
+  >
+    <MenuButton />
+  </span>
   <nav
     :class="showMenu ? 'translate-x-0' : 'translate-x-52'"
-    class="fixed top-0 right-0 bottom-0 z-20 min-w-64 overflow-auto border-l-2 transition-transform duration-500 ease-out"
+    class="fixed top-0 right-0 bottom-0 z-20 flex min-w-64 flex-col overflow-auto border-l-2 transition-transform duration-500 ease-out"
   >
     <span
-      class="fixed top-0 right-0 z-50 flex min-h-16 min-w-12 items-center justify-center lg:hidden"
-    >
-      <MenuButton />
-    </span>
-    <span
-      :class="showMenu ? 'bg-primary' : ''"
-      class="flex min-h-16 items-center border-b-2 p-2 transition duration-500"
+      :class="showMenu ? 'bg-primary' : 'bg-transparent'"
+      class="flex min-h-16 items-center gap-2 border-b-2 p-2 transition duration-500"
     >
       <ColorModeSwitch class="border-invert" />
       <span
@@ -31,7 +31,10 @@ const isDark = useDark()
       >
     </span>
 
-    <ul>
+    <ul
+      :class="showMenu ? 'backdrop-blur-xs' : 'backdrop-blur-none'"
+      class="flex-1 transition duration-500 ease-out"
+    >
       <li
         v-for="link in navigationLinks"
         @click="showMenu = false"
@@ -50,6 +53,7 @@ const isDark = useDark()
   </nav>
   <div
     :class="showMenu ? '-translate-x-52' : 'translate-x-0'"
-    class="fixed top-13.75 right-9.75 z-30 min-h-4 min-w-4 border-2 transition-transform duration-500 ease-out"
+    class="fixed top-13.75 right-9.75 z-50 min-h-4 min-w-4 border-2 transition-transform duration-500 ease-out"
+    aria-hidden="true"
   />
 </template>

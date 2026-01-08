@@ -31,7 +31,7 @@ export const useProjects = (projects, links) => {
     })
   })
 
-  const githubUrl = links.find(link => link.label === 'Github')?.to
+  const githubUrl = links.find(link => link.label === 'GitHub')?.to
   const repositoryUrl = computed(() => {
     if (!latestProject.value?.repository) return null
     return `${githubUrl}${latestProject.value.repository}`

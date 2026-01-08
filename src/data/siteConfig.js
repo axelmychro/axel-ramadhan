@@ -1,9 +1,10 @@
 import { defineAsyncComponent } from 'vue'
 
 // Configure the site, your profile, links, and projects here
+import krabyPreview from '../assets/images/krabypaty-tebingtinggi.png'
 export const yourProfile = {
   name: 'Axel Ramadhan',
-  bio: 'CS Student, Frontend Developer, Vue.js Enthusiast',
+  bio: 'CS student, frontend developer, and Vue.js enthusiast',
 
   links: [
     {
@@ -35,27 +36,40 @@ export const yourProfile = {
   projects: [
     {
       title: 'Priestess',
-      description: 'Discord.js-powered bot for my server',
+      subtitle: 'Discord.js-powered bot for my server',
+      preview: '',
+      description: '',
       date: '2025-09-28',
       repository: `priestess`,
+      icons: ['devicon:nodejs', 'devicon:discordjs'],
     },
     {
       title: 'Wanderer',
+      subtitle: 'A personal blog built with Nuxt UI and CMS',
+      preview: '',
       description: '',
       date: '2025-12-22',
       repository: `Wanderer`,
+      icons: ['devicon:nuxt', 'devicon:tailwindcss'],
     },
     {
       title: 'Template Vue Portfolio',
+      subtitle: 'Build with vue & tailwind',
+      preview: '',
       description: '',
       date: '2025-12-27',
       repository: `template-vue-portfolio`,
+      icons: ['devicon:vitejs', 'devicon:vuejs', 'devicon:tailwindcss'],
     },
     {
       title: 'Kraby Paty Tebing Tinggi',
-      description: '',
+      subtitle: 'Static website for a local burger UMKM',
+      preview: krabyPreview,
+      description:
+        'A small local burger shop in Tebing Tinggi. This website helps customers quickly view featured menu items and order via GoFood or GrabFood.',
       date: '2026-01-04',
       repository: `krabypaty-tebingtinggi`,
+      icons: ['devicon:vitejs', 'logos:preact', 'devicon:tailwindcss'],
     },
   ],
 }

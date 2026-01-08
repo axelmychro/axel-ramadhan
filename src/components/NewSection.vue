@@ -16,7 +16,7 @@ defineProps({
     />
 
     <div class="flex min-h-[calc(100vh-8rem)] min-w-full">
-      <div class="max-w-[calc(100vw-3rem)] flex-1">
+      <div class="max-w-[calc(100vw-3rem)] flex-1 not-lg:pt-8">
         <slot />
       </div>
 

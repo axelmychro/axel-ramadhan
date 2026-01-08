@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "precommit": "pnpm install && prettier . --write && vite build && vite preview"
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
     "@vitejs/plugin-vue": "^6.0.1",
+    "husky": "^9.1.7",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "unplugin-auto-import": "^20.3.0",
