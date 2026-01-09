@@ -1,14 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { yourProfile } from '../data/siteConfig'
-import { useProjects } from '../composables/useProjects'
 import { Icon } from '@iconify/vue'
+import FolderShowcase from './FolderShowcase.vue'
 
 const thisWholeSection = ref(null)
 const visible = ref(false)
 
+let observer
+
 onMounted(() => {
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
         visible.value = true
@@ -19,13 +21,19 @@ onMounted(() => {
       rootMargin: '0px 0px -40% 0px',
     },
   )
-
   observer.observe(thisWholeSection.value)
 })
-const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
-  yourProfile.projects,
-  yourProfile.links,
-)
+
+onUnmounted(() => {
+  observer?.disconnect()
+})
+
+import { computed } from 'vue'
+
+const otherProjects = computed(() => {
+  if (!visible.value) return []
+  return yourProfile.projects.slice(0, yourProfile.projects.length - 1)
+})
 </script>
 
 <template>
@@ -34,70 +42,61 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
     :class="visible ? 'translate-y-0' : 'translate-y-8 opacity-0'"
     class="flex size-full items-center justify-evenly transition-all duration-500 ease-out not-lg:flex-col"
   >
-    <div class="">
-      <span
-        class="bg-primary/80 rounded-tr-md border-2 p-2 font-mono leading-none"
-        ><Icon class="inline" icon="mdi:cube-outline" /> Latest project:</span
-      >
-      <div
-        class="xs:border-x-2 flex rounded-tr-sm rounded-b-sm border-y-2 not-lg:flex-col"
-      >
-        <div
-          class="bg-invert/20 flex max-w-lg flex-col items-center justify-center gap-2 not-lg:border-b-2"
-        >
-          <div class="bg-primary flex self-stretch border-b-2 p-2">
-            <div class="flex flex-1 flex-col">
-              <h2
-                class="font-display ftracking-tight text-xl leading-none text-balance lg:text-2xl"
-              >
-                {{ latestProject?.title }}
-              </h2>
-              <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
-                {{ latestProject?.subtitle }}
-              </div>
-              <time class="text-sm" :datetime="latestProject?.date">{{
-                formattedLatestDate
-              }}</time>
-            </div>
-
-            <div class="flex shrink-0 flex-col gap-2">
-              <Icon
-                v-for="icon in latestProject?.icons"
-                :key="icon"
-                class="size-4"
-                :icon="icon"
-              />
-            </div>
-          </div>
-
-          <a :href="repositoryUrl" target="_blank" rel="noopener noreferrer">
-            <img
-              class="xs:border-x-2 aspect-4/3 size-full max-w-72 border-y-2 object-cover lg:max-w-96"
-              :src="latestProject?.preview"
-              width="256"
-              alt="Latest project"
-            />
-          </a>
-          <p
-            class="bg-invert text-default max-w-prose px-2 leading-relaxed tracking-wide text-pretty sm:text-lg"
-          >
-            {{ latestProject?.description }}
-          </p>
-        </div>
-      </div>
+    <div>
+      <FolderShowcase />
     </div>
 
-    <div class="border-2">
+    <div class="p-2">
       <div
-        v-for="project in yourProfile.projects.slice(
-          0,
-          yourProfile?.projects.length - 1,
-        )"
-        :key="project.repository"
-        class="text-xl"
+        :class="
+          visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+        "
+        class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition delay-400 duration-500"
       >
-        <h3>{{ project.title }}</h3>
+        <Icon class="inline" icon="mdi:cube-unfolded" /> Other projects:
       </div>
+
+      <TransitionGroup name="fade-stagger" tag="ul" class="flex flex-col gap-2">
+        <li
+          v-for="(project, index) in otherProjects"
+          :key="project.repository"
+          :style="{ '--i': index }"
+          class="bg-default attention-primary -rotate-2 border p-2 outline"
+        >
+          <a
+            :href="`${yourProfile.links.find(link => link.label === 'GitHub')?.to}/${project.repository}`"
+          >
+            <div class="flex justify-between">
+              <h3 class="font-display leading-none tracking-tighter">
+                {{ project.title }}
+              </h3>
+              <time class="text-sm" :datetime="project.date">{{
+                project.date.slice(0, 4)
+              }}</time>
+            </div>
+            <p class="leading-relaxed tracking-wide text-pretty">
+              {{ project.subtitle }}
+            </p>
+          </a>
+        </li>
+      </TransitionGroup>
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-stagger-enter-active {
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+}
+
+.fade-stagger-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.fade-stagger-enter-active {
+  transition-delay: calc(var(--i) * 400ms + 800ms);
+}
+</style>

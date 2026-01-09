@@ -79,6 +79,7 @@
 
   --color-js: #f7df1e;
   --color-ts: #3178c6;
+  --color-sc: #dc322f;
 
   --color-background: #fff;
   --color-foreground: var(--color-zinc-800);

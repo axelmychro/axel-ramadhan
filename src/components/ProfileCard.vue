@@ -33,10 +33,10 @@ const linkHovered = ref(false)
         loading="lazy"
         alt=""
         role="none"
-      />
+      >
       <div
         :class="linkHovered ? 'opacity-90' : 'opacity-0'"
-        class="pointer-events-none absolute -top-6 left-0 cursor-none leading-none tracking-wide transition-opacity duration-500 ease-in"
+        class="pointer-events-none absolute -top-6 left-0 cursor-none font-mono leading-none tracking-tighter transition-opacity duration-500 ease-in"
         aria-hidden="true"
       >
         To my GitHub profile?
