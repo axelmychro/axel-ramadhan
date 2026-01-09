@@ -11,7 +11,7 @@ const linkHovered = ref(false)
     class="xs:p-2 relative flex flex-col items-center border-2 p-0 shadow-xs transition-colors duration-500 ease-out lg:py-8"
   >
     <div
-      class="pointer-events-none absolute bottom-1 left-1 font-mono text-xs leading-none tracking-tighter opacity-70 select-none"
+      class="pointer-events-none absolute bottom-1 left-1 font-mono text-[8px] leading-none tracking-tighter opacity-70 select-none sm:text-xs"
       aria-hidden="true"
     >
       ProfileCard.vue
@@ -33,7 +33,7 @@ const linkHovered = ref(false)
         loading="lazy"
         alt=""
         role="none"
-      >
+      />
       <div
         :class="linkHovered ? 'opacity-90' : 'opacity-0'"
         class="pointer-events-none absolute -top-6 left-0 cursor-none leading-none tracking-wide transition-opacity duration-500 ease-in"
@@ -43,7 +43,7 @@ const linkHovered = ref(false)
       </div>
     </a>
     <h1
-      class="mt-2 text-center text-4xl leading-none tracking-tight lg:text-5xl"
+      class="font-display mt-2 text-center text-2xl leading-none tracking-tighter lg:text-3xl"
     >
       {{ yourProfile.name }}
     </h1>

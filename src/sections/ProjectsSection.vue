@@ -35,58 +35,54 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
     class="flex size-full items-center justify-evenly transition-all duration-500 ease-out not-lg:flex-col"
   >
     <div class="">
-      <div class="xs:border-x-2 flex border-y-2 not-lg:flex-col">
+      <span
+        class="bg-primary/80 rounded-tr-md border-2 p-2 font-mono leading-none"
+        ><Icon class="inline" icon="mdi:cube-outline" /> Latest project:</span
+      >
+      <div
+        class="xs:border-x-2 flex rounded-tr-sm rounded-b-sm border-y-2 not-lg:flex-col"
+      >
         <div
-          class="bg-default xs:p-2 flex max-w-96 flex-col items-center justify-center gap-2 not-lg:border-b-2 sm:px-4 lg:border-l-2"
+          class="bg-invert/20 flex max-w-lg flex-col items-center justify-center gap-2 not-lg:border-b-2"
         >
-          <div class="flex flex-col self-start">
-            <h2
-              class="text-2xl leading-none font-bold tracking-tight text-balance"
-            >
-              {{ latestProject?.title }}
-            </h2>
-            <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
-              {{ latestProject?.subtitle }}
+          <div class="bg-primary flex self-stretch border-b-2 p-2">
+            <div class="flex flex-1 flex-col">
+              <h2
+                class="font-display ftracking-tight text-xl leading-none text-balance lg:text-2xl"
+              >
+                {{ latestProject?.title }}
+              </h2>
+              <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
+                {{ latestProject?.subtitle }}
+              </div>
+              <time class="text-sm" :datetime="latestProject?.date">{{
+                formattedLatestDate
+              }}</time>
             </div>
-            <time
-              class="text-sm"
-              :datetime="latestProject?.date"
-            >{{
-              formattedLatestDate
-            }}</time>
+
+            <div class="flex shrink-0 flex-col gap-2">
+              <Icon
+                v-for="icon in latestProject?.icons"
+                :key="icon"
+                class="size-4"
+                :icon="icon"
+              />
+            </div>
           </div>
-          <a
-            :href="repositoryUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+          <a :href="repositoryUrl" target="_blank" rel="noopener noreferrer">
             <img
               class="xs:border-x-2 aspect-4/3 size-full max-w-72 border-y-2 object-cover lg:max-w-96"
               :src="latestProject?.preview"
               width="256"
               alt="Latest project"
-            >
+            />
           </a>
           <p
-            class="max-w-prose leading-relaxed tracking-wide text-pretty sm:text-lg"
+            class="bg-invert text-default max-w-prose px-2 leading-relaxed tracking-wide text-pretty sm:text-lg"
           >
             {{ latestProject?.description }}
           </p>
-        </div>
-
-        <div
-          class="bg-invert border-default flex max-h-fit gap-2 border-2 lg:order-first lg:max-w-12 lg:flex-col"
-        >
-          <span class="text-default font-mono leading-none tracking-tighter">Built
-            <div role="none">with:</div></span>
-          <span class="flex items-center lg:flex-col">
-            <Icon
-              v-for="icon in latestProject?.icons"
-              :key="icon"
-              class="size-6"
-              :icon="icon"
-            />
-          </span>
         </div>
       </div>
     </div>
