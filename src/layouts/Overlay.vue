@@ -27,8 +27,7 @@ const isDark = useDark()
       <ColorModeSwitch class="border-invert" />
       <span
         class="pointer-events-none leading-none font-bold tracking-tighter uppercase select-none"
-        >Theme: 「{{ isDark ? 'Order' : 'Chaos' }}」</span
-      >
+      >Theme: 「{{ isDark ? 'Order' : 'Chaos' }}」</span>
     </span>
 
     <ul
@@ -37,15 +36,18 @@ const isDark = useDark()
     >
       <li
         v-for="link in navigationLinks"
-        @click="showMenu = false"
         :key="link.to"
+        @click="showMenu = false"
       >
         <a
           :href="link.to"
           :class="showMenu ? 'bg-default' : 'bg-transparent'"
           class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
         >
-          <Icon class="bg-primary border" :icon="link.icon" />
+          <Icon
+            class="bg-primary border"
+            :icon="link.icon"
+          />
           {{ link.label }}
         </a>
       </li>

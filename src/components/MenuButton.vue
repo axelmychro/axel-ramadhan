@@ -7,10 +7,10 @@ const { showMenu } = useMenuState()
 
 <template>
   <button
-    @click="showMenu = !showMenu"
     class="flex shrink-0 cursor-pointer items-center justify-center"
     type="button"
     aria-label=" navigation menu"
+    @click="showMenu = !showMenu"
   >
     <Icon
       v-if="showMenu"

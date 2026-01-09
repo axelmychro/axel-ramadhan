@@ -48,17 +48,24 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
             <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
               {{ latestProject?.subtitle }}
             </div>
-            <time class="text-sm" :datetime="latestProject?.date">{{
+            <time
+              class="text-sm"
+              :datetime="latestProject?.date"
+            >{{
               formattedLatestDate
             }}</time>
           </div>
-          <a :href="repositoryUrl" target="_blank" rel="noopener noreferrer">
+          <a
+            :href="repositoryUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               class="xs:border-x-2 aspect-4/3 size-full max-w-72 border-y-2 object-cover lg:max-w-96"
               :src="latestProject?.preview"
               width="256"
               alt="Latest project"
-            />
+            >
           </a>
           <p
             class="max-w-prose leading-relaxed tracking-wide text-pretty sm:text-lg"
@@ -70,13 +77,12 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
         <div
           class="bg-invert border-default flex max-h-fit gap-2 border-2 lg:order-first lg:max-w-12 lg:flex-col"
         >
-          <span class="text-default font-mono leading-none tracking-tighter"
-            >Built
-            <div role="none">with:</div></span
-          >
+          <span class="text-default font-mono leading-none tracking-tighter">Built
+            <div role="none">with:</div></span>
           <span class="flex items-center lg:flex-col">
             <Icon
               v-for="icon in latestProject?.icons"
+              :key="icon"
               class="size-6"
               :icon="icon"
             />
@@ -91,6 +97,7 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
           0,
           yourProfile?.projects.length - 1,
         )"
+        :key="project.repository"
         class="text-xl"
       >
         <h3>{{ project.title }}</h3>

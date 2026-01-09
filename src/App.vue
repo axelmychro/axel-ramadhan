@@ -17,8 +17,8 @@ onUnmounted(destroyLenis)
     <main>
       <NewSection
         v-for="section in navigationLinks"
-        :key="section.to"
         :id="section.to.slice(1)"
+        :key="section.to"
         :header="section.header"
       >
         <component :is="section.component" />

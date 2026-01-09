@@ -59,8 +59,7 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
               >
                 <span class="text-base tracking-wide text-pretty">
                   View latest:
-                  <b class="font-bold">{{ latestProject.title }}</b></span
-                >
+                  <b class="font-bold">{{ latestProject.title }}</b></span>
               </CTAButton>
             </TransitionGroup>
             <div
@@ -83,10 +82,12 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
             </div>
 
             <TransitionGroup name="fade-stagger">
-              <CTAButton v-if="mounted" :style="{ '--i': 3 }" section="Contact">
-                <span class="text-base tracking-wide text-pretty"
-                  >I'm open for collaboration, <b>let's talk</b></span
-                >
+              <CTAButton
+                v-if="mounted"
+                :style="{ '--i': 3 }"
+                section="Contact"
+              >
+                <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
               </CTAButton>
             </TransitionGroup>
           </div>

@@ -5,8 +5,14 @@ import { Icon } from '@iconify/vue'
 import { navigationLinks, yourProfile } from '../data/siteConfig'
 
 const props = defineProps({
-  section: String,
-  profileLink: String,
+  section: {
+    type: String,
+    default: null,
+  },
+  profileLink: {
+    type: String,
+    default: null,
+  },
 })
 
 const navItem = computed(() =>
@@ -37,7 +43,7 @@ const profileItem = computed(() =>
       class="absolute size-12 self-end opacity-20"
       :icon="
         (navItem?.trailingIcon ?? profileItem?.trailingIcon) ||
-        'mdi:arrow-right-bold-circle-outline'
+          'mdi:arrow-right-bold-circle-outline'
       "
     />
 

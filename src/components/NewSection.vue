@@ -1,14 +1,22 @@
 <script setup>
 defineProps({
-  id: String,
-  header: Boolean,
+  id: {
+    type: String,
+    required: false,
+    default: undefined,
+  },
+  header: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 })
 </script>
 
 <template>
   <section
-    class="relative min-h-[calc(100vh-8rem)] min-w-full overflow-hidden bg-linear-to-b from-cyan-50 via-sky-50 to-cyan-50 dark:from-neutral-950 dark:via-gray-950 dark:to-neutral-950"
     :id="id"
+    class="relative min-h-[calc(100vh-8rem)] min-w-full overflow-hidden bg-linear-to-b from-cyan-50 via-sky-50 to-cyan-50 dark:from-neutral-950 dark:via-gray-950 dark:to-neutral-950"
   >
     <div
       :class="header ? 'bg-primary' : 'bg-transparent'"
