@@ -94,7 +94,7 @@ export const navigationLinks = [
     to: '#home',
     icon: 'gg:shape-rhombus',
     component: defineAsyncComponent(sectionMap.home),
-    header: true,
+    header: 'min-h-16', // Default to 16 (header nav height)
   },
   {
     label: 'Projects',
@@ -102,7 +102,7 @@ export const navigationLinks = [
     icon: 'mdi:cube-outline',
     trailingIcon: 'mdi:code-array',
     component: defineAsyncComponent(sectionMap.projects),
-    header: false,
+    header: undefined,
   },
   {
     label: 'About',
@@ -110,14 +110,14 @@ export const navigationLinks = [
     icon: 'mdi:triangle-outline',
     trailingIcon: 'mdi:magnify-expand',
     component: defineAsyncComponent(sectionMap.about),
-    header: false,
+    header: 'min-h-64',
   },
   {
     label: 'Timeline',
     to: '#timeline',
     icon: 'mdi:hourglass',
     component: defineAsyncComponent(sectionMap.timeline),
-    header: false,
+    header: undefined,
   },
   {
     label: 'Contact',
@@ -125,7 +125,7 @@ export const navigationLinks = [
     icon: 'mdi:paper-airplane-outline',
     trailingIcon: 'mingcute:cellphone-vibration-fill',
     component: defineAsyncComponent(sectionMap.contact),
-    header: false,
+    header: undefined,
   },
 ]
 

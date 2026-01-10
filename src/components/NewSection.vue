@@ -6,9 +6,9 @@ defineProps({
     default: undefined,
   },
   header: {
-    type: Boolean,
+    type: String,
     required: false,
-    default: false,
+    default: 'hidden',
   },
 })
 </script>
@@ -16,19 +16,19 @@ defineProps({
 <template>
   <section
     :id="id"
-    class="relative min-h-[calc(100vh-8rem)] min-w-full shrink-0 overflow-hidden bg-linear-to-b from-sky-100 via-cyan-50 to-sky-100 dark:from-neutral-900 dark:via-gray-950 dark:to-neutral-900"
+    class="relative -z-10 min-h-[calc(100vh-4rem)] min-w-full shrink-0 overflow-hidden bg-linear-to-b from-sky-100 via-cyan-50 to-sky-100 pt-16 dark:from-neutral-900 dark:via-gray-950 dark:to-neutral-900"
   >
     <div
-      :class="header ? 'bg-primary' : 'bg-transparent'"
-      class="min-h-16 min-w-full"
+      :class="header"
+      class="bg-primary absolute top-0 -z-10 min-w-full shrink-0"
     />
 
-    <div class="flex min-h-[calc(100vh-8rem)] min-w-full">
+    <div class="flex min-h-[calc(100vh-4rem)] min-w-full">
       <div class="max-w-[calc(100vw-3rem)] flex-1 not-lg:pt-8">
         <slot />
       </div>
 
-      <div class="max-w-12 min-w-12 shrink-0">
+      <div class="max-w-12 min-w-12 flex-1 shrink-0">
         <slot name="right" />
       </div>
     </div>
