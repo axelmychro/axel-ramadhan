@@ -31,7 +31,7 @@ const resolvedLinks = computed(() =>
     <small>
       <a
         class="flex flex-col gap-4"
-        to="#"
+        href="#"
         aria-label="Go back to top"
       >
         <span class="font-display text-4xl leading-none">{{

@@ -1,6 +1,7 @@
 <script setup>
 import { Icon } from '@iconify/vue'
 import { RouterLink } from 'vue-router'
+import { yourProfile } from '../data/siteConfig'
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import { RouterLink } from 'vue-router'
   </header>
   <main>
     <iframe
+      :title="`${yourProfile.name}'s resume'`"
       src="/resume.pdf"
       style="width: 100%; height: 100vh; border: none"
     />
