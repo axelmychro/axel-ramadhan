@@ -33,7 +33,7 @@ export const yourProfile = {
       trailingIcon: 'mdi:account-view',
     },
     {
-      label: 'Instragram',
+      label: 'Instagram',
       to: 'https://www.instagram.com/axelmychro',
       icon: 'mdi:instagram',
     },
