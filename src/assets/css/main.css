@@ -87,14 +87,17 @@
 
   --color-js: #f7df1e;
   --color-ts: #3178c6;
-  --color-sc: #dc322f;
+  --color-vue: #4fc08d;
 
   --color-background: #fff;
   --color-foreground: var(--color-zinc-800);
 
   --color-primary: var(--color-js);
   --color-default: #fff;
+  --color-default-soft: #aaa;
+
   --color-invert: var(--color-zinc-800);
+  --color-invert-soft: var(--color-zinc-600);
   --color-invert-shadow: rgb(39, 39, 42, 0.5);
 }
 .dark {
@@ -105,7 +108,10 @@
 
   --color-primary: var(--color-ts);
   --color-default: var(--color-zinc-800);
+  --color-default-soft: var(--color-zinc-600);
+
   --color-invert: #fff;
+  --color-invert-soft: #aaa;
   --color-invert-shadow: rgba(255, 255, 255, 0.5);
 }
 html {
@@ -114,4 +120,8 @@ html {
 
 .attention-primary {
   @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition duration-500 ease-out hover:-translate-y-0.5 hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-invert-shadow))] focus:shadow-md active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-invert))];
+}
+
+.link {
+  @apply text-sky-500 underline;
 }

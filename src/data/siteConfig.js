@@ -110,7 +110,7 @@ export const navigationLinks = [
     icon: 'mdi:triangle-outline',
     trailingIcon: 'mdi:magnify-expand',
     component: defineAsyncComponent(sectionMap.about),
-    header: 'min-h-64',
+    header: 'min-h-64 border-y-2',
   },
   {
     label: 'Timeline',
