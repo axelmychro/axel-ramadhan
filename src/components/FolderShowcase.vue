@@ -25,7 +25,7 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
       <div class="bg-primary xs:px-2 flex self-stretch border-b-2 py-2">
         <div class="flex flex-1 flex-col">
           <h2
-            class="font-display ftracking-tight text-xl leading-none text-balance lg:text-2xl"
+            class="font-display tracking-tight text-xl leading-none text-balance lg:text-2xl"
           >
             {{ latestProject?.title }}
           </h2>
