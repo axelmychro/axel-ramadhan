@@ -1,5 +1,70 @@
-<script setup></script>
+<script setup>
+import { useDark } from '@vueuse/core'
+import { siteConfig, yourProfile } from '../data/siteConfig'
+import ColorModeSwitch from '../components/ColorModeSwitch.vue'
 
+const myGitHub = yourProfile.links.find(link => link?.label === 'GitHub')?.to
+
+const isDark = useDark()
+
+const newAboutCollection = [
+  {
+    id: 'about-me',
+    title: 'About me',
+    author: yourProfile.name,
+    icon: myGitHub + '.png',
+  },
+  {
+    id: 'about-site',
+    title: 'This site',
+    author: siteConfig.name,
+    icon: '/apple-touch-icon.png',
+  },
+]
+</script>
 <template>
-  <div />
+  <div class="flex size-full flex-col items-center justify-center gap-8">
+    <NewArticle
+      v-for="item in newAboutCollection"
+      :key="item.id"
+      :title="item.title"
+      :author="item.author"
+      :icon="item.icon"
+    >
+      <template v-if="item.id === 'about-me'">
+        <p>
+          Just a computer science student who loves websites a little too much.
+        </p>
+        <p>
+          My equivalent of people's .txt file would be .html, if that even makes
+          sense. Markdown exists, but that <i>feels</i> like cheating... I want
+          to style everything myself, <b>breakpoint by breakpoint</b>.
+        </p>
+        <p>
+          I also find optimizing SEO somewhat fun, given that I can rest my eyes
+          from jarring lines of codes and design a summary image in Canva.
+        </p>
+      </template>
+
+      <template v-else-if="item.id === 'about-site'">
+        <p>
+          You may have noticed that <ColorModeSwitch class="inline" /> icon at
+          top right. Correct, this site is essentially a love letter for
+          {{ isDark ? 'TypeScript' : 'JavaScript' }} and
+          <a
+            class="link"
+            href="https://www.arknights.global"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Arknights</a>.
+        </p>
+        <p>
+          Design aside, your ever-presence here is thanks to
+          <b><span class="text-vue">Vue</span> wizardry</b> that clumps my
+          <code>div Soups&trade;</code> nicely and thus finally be able to
+          <b>hex</b> (and fix) this very section.
+        </p>
+      </template>
+    </NewArticle>
+  </div>
 </template>
