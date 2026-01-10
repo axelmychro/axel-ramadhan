@@ -44,7 +44,7 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
           <Icon
             v-for="icon in latestProject?.icons"
             :key="icon"
-            class="bg-invert/50 size-4 border-2 saturate-0"
+            class="size-4"
             :icon="icon"
           />
         </div>

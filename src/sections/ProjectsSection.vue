@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { yourProfile } from '../data/siteConfig'
 import { Icon } from '@iconify/vue'
-import FolderShowcase from './FolderShowcase.vue'
+import FolderShowcase from '../components/FolderShowcase.vue'
 
 const thisWholeSection = ref(null)
 const visible = ref(false)
@@ -40,23 +40,28 @@ const otherProjects = computed(() => {
   <div
     ref="thisWholeSection"
     :class="visible ? 'translate-y-0' : 'translate-y-8 opacity-0'"
-    class="flex size-full items-center justify-evenly transition-all duration-500 ease-out not-lg:flex-col"
+    class="flex size-full items-center justify-evenly transition-all duration-800 ease-out not-lg:flex-col"
   >
-    <div>
+    <div class="shrink-0">
       <FolderShowcase />
     </div>
 
-    <div class="p-2">
+    <div class="shrink-0 p-2">
       <div
-        :class="
-          visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-        "
-        class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition delay-400 duration-500"
+        :class="visible ? 'scale-100 opacity-100' : 'scale-97 opacity-0'"
+        class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 transition delay-400 duration-400"
       >
-        <Icon class="inline" icon="mdi:cube-unfolded" /> Other projects:
+        <Icon
+          class="inline"
+          icon="mdi:cube-unfolded"
+        /> Other projects:
       </div>
 
-      <TransitionGroup name="fade-stagger" tag="ul" class="flex flex-col gap-2">
+      <TransitionGroup
+        name="fade-stagger"
+        tag="ul"
+        class="flex flex-col gap-2"
+      >
         <li
           v-for="(project, index) in otherProjects"
           :key="project.repository"
@@ -70,7 +75,10 @@ const otherProjects = computed(() => {
               <h3 class="font-display leading-none tracking-tighter">
                 {{ project.title }}
               </h3>
-              <time class="text-sm" :datetime="project.date">{{
+              <time
+                class="text-sm"
+                :datetime="project.date"
+              >{{
                 project.date.slice(0, 4)
               }}</time>
             </div>
@@ -87,15 +95,13 @@ const otherProjects = computed(() => {
 <style scoped>
 .fade-stagger-enter-active {
   transition:
-    opacity 500ms ease-out,
-    transform 500ms ease-out;
+    opacity 400ms ease-out,
+    scale 400ms ease-out;
 }
-
 .fade-stagger-enter-from {
   opacity: 0;
-  transform: translateY(8px);
+  scale: 97%;
 }
-
 .fade-stagger-enter-active {
   transition-delay: calc(var(--i) * 400ms + 800ms);
 }

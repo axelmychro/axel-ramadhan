@@ -53,7 +53,10 @@ const targetLink = computed(() => {
       :class="section ? 'lg:text-4xl' : ''"
       class="flex items-center gap-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
     >
-      <Icon class="shrink-0" :icon="navItem?.icon ?? profileItem?.icon" />
+      <Icon
+        class="shrink-0"
+        :icon="navItem?.icon ?? profileItem?.icon"
+      />
       {{ navItem?.label ?? profileItem?.alt }}
     </span>
 
@@ -62,7 +65,7 @@ const targetLink = computed(() => {
       class="absolute size-12 self-end opacity-20"
       :icon="
         (navItem?.trailingIcon ?? profileItem?.trailingIcon) ||
-        'mdi:arrow-right-bold-circle'
+          'mdi:arrow-right-bold-circle'
       "
     />
 
