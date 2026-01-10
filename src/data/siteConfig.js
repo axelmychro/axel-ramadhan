@@ -11,19 +11,26 @@ export const yourProfile = {
       label: 'Email',
       alt: 'Email me',
       to: 'mailto:axelmychro@gmail.com',
-      icon: 'mdi:email-edit',
+      icon: 'mdi:email-edit-outline',
     },
     {
       label: 'GitHub',
       to: 'https://github.com/axelmychro',
-      icon: 'mdi:github',
+      icon: 'simple-icons:github',
     },
     {
       label: 'LinkedIn',
       alt: 'Connect?',
       to: 'https://linkedin.com/in/axelramadhan',
-      icon: 'mdi:linkedin',
+      icon: 'simple-icons:linkedin',
       trailingIcon: 'mdi:connect-without-contact',
+    },
+    {
+      label: 'Resume',
+      alt: 'My resume',
+      to: '/resume',
+      icon: 'mdi:paper-text-outline',
+      trailingIcon: 'mdi:account-view',
     },
     {
       label: 'Instragram',
@@ -93,7 +100,7 @@ export const navigationLinks = [
     label: 'Projects',
     to: '#projects',
     icon: 'mdi:cube-outline',
-    trailingIcon: 'mdi:arrow-right-bold-circle',
+    trailingIcon: 'mdi:code-array',
     component: defineAsyncComponent(sectionMap.projects),
     header: false,
   },
@@ -116,7 +123,7 @@ export const navigationLinks = [
     label: 'Contact',
     to: '#contact',
     icon: 'mdi:paper-airplane-outline',
-    trailingIcon: 'mingcute:cellphone-vibration-line',
+    trailingIcon: 'mingcute:cellphone-vibration-fill',
     component: defineAsyncComponent(sectionMap.contact),
     header: false,
   },
@@ -125,4 +132,5 @@ export const navigationLinks = [
 export const siteConfig = {
   name: 'mychro',
   url: 'https://axelmychro.my.id',
+  repository: 'https://github.com/axelmychro/axel-ramadhan',
 }

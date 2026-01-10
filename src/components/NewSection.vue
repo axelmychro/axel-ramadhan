@@ -16,7 +16,7 @@ defineProps({
 <template>
   <section
     :id="id"
-    class="relative min-h-[calc(100vh-8rem)] min-w-full overflow-hidden bg-linear-to-b from-sky-100 via-cyan-50 to-sky-100 dark:from-neutral-900 dark:via-gray-950 dark:to-neutral-900"
+    class="relative min-h-[calc(100vh-8rem)] min-w-full shrink-0 overflow-hidden bg-linear-to-b from-sky-100 via-cyan-50 to-sky-100 dark:from-neutral-900 dark:via-gray-950 dark:to-neutral-900"
   >
     <div
       :class="header ? 'bg-primary' : 'bg-transparent'"

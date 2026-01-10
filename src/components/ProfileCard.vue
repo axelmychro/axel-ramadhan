@@ -8,7 +8,7 @@ const linkHovered = ref(false)
 <template>
   <div
     :class="linkHovered ? 'bg-primary' : 'bg-default'"
-    class="xs:p-2 relative flex flex-col items-center border-2 p-0 shadow-xs transition-colors duration-500 ease-out lg:py-8"
+    class="xs:p-2 relative flex flex-col items-center border-2 p-0 shadow-xs transition-all duration-500 ease-out lg:py-8"
   >
     <div
       class="pointer-events-none absolute bottom-1 left-1 font-mono text-[8px] leading-none tracking-tighter opacity-70 select-none sm:text-xs"
@@ -26,7 +26,7 @@ const linkHovered = ref(false)
       @mouseleave="linkHovered = false"
     >
       <img
-        class="bg-primary aspect-square size-full max-h-32 min-h-32 max-w-32 min-w-32 border-2 transition-transform duration-500 ease-out lg:max-h-48 lg:min-h-48 lg:max-w-48 lg:min-w-48"
+        class="bg-primary aspect-square size-full max-h-32 min-h-32 max-w-32 min-w-32 border-2 lg:max-h-48 lg:min-h-48 lg:max-w-48 lg:min-w-48"
         :src="`${yourProfile.links.find(link => link.label === 'GitHub')?.to}.png`"
         width="128"
         height="128"
@@ -36,7 +36,7 @@ const linkHovered = ref(false)
       >
       <div
         :class="linkHovered ? 'opacity-90' : 'opacity-0'"
-        class="pointer-events-none absolute -top-6 left-0 cursor-none font-mono leading-none tracking-tighter transition-opacity duration-500 ease-in"
+        class="pointer-events-none absolute -top-6 left-0 cursor-none font-mono leading-none tracking-tighter transition-opacity duration-500 ease-in select-none"
         aria-hidden="true"
       >
         To my GitHub profile?

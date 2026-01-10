@@ -31,15 +31,19 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
           <TransitionGroup name="fade-stagger">
             <CTAButton
               v-if="mounted"
-              :style="{ '--i': 2 }"
+              :style="{ '--i': 1 }"
               class="not-sm:border-b-0"
               profile-link="Email"
             />
             <CTAButton
               v-if="mounted"
-              key="ctab2"
-              :style="{ '--i': 3 }"
+              :style="{ '--i': 2 }"
               profile-link="LinkedIn"
+            />
+            <CTAButton
+              v-if="mounted"
+              :style="{ '--i': 3 }"
+              profile-link="Resume"
             />
           </TransitionGroup>
         </div>
@@ -99,14 +103,12 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
 .fade-stagger-enter-active {
   transition:
     opacity 500ms ease-out,
-    transform 500ms ease-out;
+    scale 500ms ease-out;
 }
-
 .fade-stagger-enter-from {
   opacity: 0;
-  transform: translateY(8px);
+  scale: 97%;
 }
-
 .fade-stagger-enter-active {
   transition-delay: calc(var(--i) * 200ms);
 }
