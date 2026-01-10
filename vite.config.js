@@ -5,5 +5,17 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
+  build: {
+    sourcemap: true,
+    assetsInlineLimit: 0,
+  },
   plugins: [vue(), tailwindcss(), Components()],
+  ssgOptions: {
+    script: 'async',
+    formatting: 'minify',
+    crittersOptions: {
+      pruneSource: true,
+    },
+  },
 })
