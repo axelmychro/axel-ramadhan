@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 
 import { navigationLinks, yourProfile } from '../data/siteConfig'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   section: {
@@ -16,25 +17,43 @@ const props = defineProps({
 })
 
 const navItem = computed(() =>
-  navigationLinks.find(l => l.label === props.section),
+  navigationLinks.find(link => link.label === props.section),
 )
 
 const profileItem = computed(() =>
-  yourProfile.links.find(l => l.label === props.profileLink),
+  yourProfile.links.find(link => link.label === props.profileLink),
 )
+
+const targetLink = computed(() => {
+  const item = navItem.value ?? profileItem.value
+  if (!item?.to) return null
+
+  const isInternal = item.to.startsWith('/') && !item.to.startsWith('//')
+
+  return {
+    isInternal,
+    to: item.to,
+  }
+})
 </script>
 
 <template>
-  <a
-    :class="section ? 'lg:p-6' : ''"
-    class="bg-default xs:p-2 attention-primary relative flex max-h-32 min-h-16 max-w-lg min-w-24 flex-1 flex-col justify-center border-2"
-    :href="navItem?.to ?? profileItem?.to"
+  <component
+    :is="targetLink?.isInternal ? RouterLink : 'a'"
+    :to="targetLink?.isInternal ? targetLink.to : undefined"
+    :href="!targetLink?.isInternal ? targetLink.to : undefined"
+    :target="!targetLink?.isInternal ? '_blank' : undefined"
+    :rel="!targetLink?.isInternal ? 'noopener noreferrer' : undefined"
+    :class="[
+      'bg-default xs:p-2 attention-primary relative flex max-h-32 min-h-16 max-w-xl min-w-24 shrink-0 cursor-pointer flex-col justify-center border-2',
+      section ? 'lg:p-6' : '',
+    ]"
   >
     <span
       :class="section ? 'lg:text-4xl' : ''"
-      class="flex gap-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
+      class="flex items-center gap-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
     >
-      <Icon :icon="navItem?.icon ?? profileItem?.icon" />
+      <Icon class="shrink-0" :icon="navItem?.icon ?? profileItem?.icon" />
       {{ navItem?.label ?? profileItem?.alt }}
     </span>
 
@@ -43,12 +62,12 @@ const profileItem = computed(() =>
       class="absolute size-12 self-end opacity-20"
       :icon="
         (navItem?.trailingIcon ?? profileItem?.trailingIcon) ||
-          'mdi:arrow-right-bold-circle-outline'
+        'mdi:arrow-right-bold-circle'
       "
     />
 
     <div>
       <slot />
     </div>
-  </a>
+  </component>
 </template>
