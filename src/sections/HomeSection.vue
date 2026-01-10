@@ -27,26 +27,28 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
             class="not-sm:border-b-0"
           />
         </TransitionGroup>
-        <div class="flex not-lg:flex-col sm:gap-2">
-          <TransitionGroup name="fade-stagger">
-            <CTAButton
-              v-if="mounted"
-              :style="{ '--i': 1 }"
-              class="not-sm:border-b-0"
-              profile-link="Email"
-            />
-            <CTAButton
-              v-if="mounted"
-              :style="{ '--i': 2 }"
-              profile-link="LinkedIn"
-            />
-            <CTAButton
-              v-if="mounted"
-              :style="{ '--i': 3 }"
-              profile-link="Resume"
-            />
-          </TransitionGroup>
-        </div>
+        <TransitionGroup
+          tag="div"
+          class="flex justify-between not-lg:flex-col sm:gap-2"
+          name="fade-stagger"
+        >
+          <CTAButton
+            v-if="mounted"
+            :style="{ '--i': 1 }"
+            class="not-sm:border-b-0"
+            profile-link="Email"
+          />
+          <CTAButton
+            v-if="mounted"
+            :style="{ '--i': 2 }"
+            profile-link="LinkedIn"
+          />
+          <CTAButton
+            v-if="mounted"
+            :style="{ '--i': 3 }"
+            profile-link="Resume"
+          />
+        </TransitionGroup>
       </div>
     </div>
 
@@ -65,24 +67,25 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
                 <b class="font-bold">{{ latestProject.title }}</b></span>
             </CTAButton>
           </TransitionGroup>
-          <div
-            class="flex perspective-normal perspective-origin-top-left not-sm:flex-col sm:gap-2 lg:gap-6"
+
+          <TransitionGroup
+            class="flex justify-between not-sm:flex-col sm:gap-2 lg:gap-6"
+            tag="div"
+            name="fade-stagger"
           >
-            <TransitionGroup name="fade-stagger">
-              <CTAButton
-                v-if="mounted"
-                :style="{ '--i': 1 }"
-                class="not-sm:border-b-0"
-                section="About"
-              />
-              <CTAButton
-                v-if="mounted"
-                :style="{ '--i': 2 }"
-                class="not-sm:border-b-0"
-                section="Timeline"
-              />
-            </TransitionGroup>
-          </div>
+            <CTAButton
+              v-if="mounted"
+              :style="{ '--i': 1 }"
+              class="not-sm:border-b-0"
+              section="About"
+            />
+            <CTAButton
+              v-if="mounted"
+              :style="{ '--i': 2 }"
+              class="not-sm:border-b-0"
+              section="Timeline"
+            />
+          </TransitionGroup>
 
           <TransitionGroup name="fade-stagger">
             <CTAButton

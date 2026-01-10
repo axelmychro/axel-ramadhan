@@ -45,13 +45,13 @@ const targetLink = computed(() => {
     :target="!targetLink?.isInternal ? '_blank' : undefined"
     :rel="!targetLink?.isInternal ? 'noopener noreferrer' : undefined"
     :class="[
-      'bg-default xs:p-2 attention-primary relative flex max-h-32 min-h-16 max-w-xl min-w-24 shrink-0 cursor-pointer flex-col justify-center border-2',
+      'bg-default attention-primary relative flex flex-1 shrink-0 cursor-pointer flex-col items-start justify-center border-2 p-2',
       section ? 'lg:p-6' : '',
     ]"
   >
     <span
       :class="section ? 'lg:text-4xl' : ''"
-      class="flex items-center gap-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
+      class="flex items-center gap-2 p-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
     >
       <Icon
         class="shrink-0"
