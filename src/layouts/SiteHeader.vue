@@ -8,7 +8,7 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
     class="border-invert fixed top-0 right-0 left-0 z-10 flex min-h-16 min-w-full items-center border-b-2 pr-12 backdrop-blur-xs"
   >
     <nav class="flex items-center p-2">
-      <RouterLink
+      <a
         href="#"
         :aria-label="`${siteConfig.name}, home`"
       >
@@ -17,7 +17,7 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
           class="size-8"
           icon="gg:shape-rhombus"
         />
-      </RouterLink>
+      </a>
       <ul
         role="list"
         aria-label="Navigation links"
@@ -28,9 +28,9 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
           :key="link.to"
           class="text-shadow-default block truncate px-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase text-shadow-[0px_0px_4px_var(--tw-text-shadow-color)]"
         >
-          <RouterLink :href="link.to">
+          <a :href="link.to">
             {{ link.label }}
-          </RouterLink>
+          </a>
         </li>
       </ul>
     </nav>

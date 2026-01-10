@@ -29,9 +29,9 @@ const resolvedLinks = computed(() =>
     class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8 lg:px-4"
   >
     <small>
-      <RouterLink
+      <a
         class="flex flex-col gap-4"
-        to="/"
+        to="#"
         aria-label="Go back to top"
       >
         <span class="font-display text-4xl leading-none">{{
@@ -42,7 +42,7 @@ const resolvedLinks = computed(() =>
           <time :datetime="new Date()">{{ new Date().getFullYear() }}</time>
           {{ yourProfile.name }}
         </div>
-      </RouterLink>
+      </a>
     </small>
 
     <ul class="flex flex-col gap-4 sm:pr-12">

@@ -39,7 +39,7 @@ const isDark = useDark()
         :key="link.to"
         @click="showMenu = false"
       >
-        <RouterLink
+        <a
           :href="link.to"
           :class="showMenu ? 'bg-default' : 'bg-transparent'"
           class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
@@ -49,7 +49,7 @@ const isDark = useDark()
             :icon="link.icon"
           />
           {{ link.label }}
-        </RouterLink>
+        </a>
       </li>
     </ul>
   </nav>
