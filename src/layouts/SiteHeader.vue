@@ -8,14 +8,16 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
     class="border-invert fixed top-0 right-0 left-0 z-10 flex min-h-16 min-w-full items-center border-b-2 pr-12 backdrop-blur-xs"
   >
     <nav class="flex items-center p-2">
-      <a
+      <RouterLink
         href="#"
         :aria-label="`${siteConfig.name}, home`"
-      ><Icon
-        aria-hidden="true"
-        class="size-8"
-        icon="gg:shape-rhombus"
-      /></a>
+      >
+        <Icon
+          aria-hidden="true"
+          class="size-8"
+          icon="gg:shape-rhombus"
+        />
+      </RouterLink>
       <ul
         role="list"
         aria-label="Navigation links"
@@ -24,9 +26,11 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
         <li
           v-for="link in navigationLinks"
           :key="link.to"
-          class="block truncate px-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase"
+          class="text-shadow-default block truncate px-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase text-shadow-[0px_0px_4px_var(--tw-text-shadow-color)]"
         >
-          <a :href="link.to">{{ link.label }}</a>
+          <RouterLink :href="link.to">
+            {{ link.label }}
+          </RouterLink>
         </li>
       </ul>
     </nav>
