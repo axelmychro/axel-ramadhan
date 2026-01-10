@@ -5,7 +5,7 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
 
 <template>
   <header
-    class="border-invert fixed top-0 right-0 left-0 z-10 flex min-h-16 min-w-full items-center border-b-2 pr-12 backdrop-blur-xs"
+    class="border-invert fixed top-0 right-0 left-0 z-30 flex min-h-16 min-w-full items-center border-b-2 pr-12 backdrop-blur-xs"
   >
     <nav class="flex items-center p-2">
       <a

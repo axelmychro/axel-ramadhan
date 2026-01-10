@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { useMenuState } from '../composables/useMenuState'
 import { navigationLinks } from '../data/siteConfig'
 import { Icon } from '@iconify/vue'
@@ -18,7 +18,7 @@ const isDark = useDark()
   </span>
   <nav
     :class="showMenu ? 'translate-x-0' : 'translate-x-52'"
-    class="fixed top-0 right-0 bottom-0 z-20 flex min-w-64 flex-col overflow-auto border-l-2 transition-transform duration-500 ease-out"
+    class="fixed top-0 right-0 bottom-0 z-40 flex min-w-64 flex-col overflow-auto border-l-2 transition-transform duration-500 ease-out"
   >
     <span
       :class="showMenu ? 'bg-primary' : 'bg-transparent'"
@@ -30,10 +30,7 @@ const isDark = useDark()
       >Theme: 「{{ isDark ? 'Order' : 'Chaos' }}」</span>
     </span>
 
-    <ul
-      :class="showMenu ? 'backdrop-blur-xs' : 'backdrop-blur-none'"
-      class="flex-1 transition duration-500 ease-out"
-    >
+    <ul class="flex-1 backdrop-blur-xs transition duration-500 ease-out">
       <li
         v-for="link in navigationLinks"
         :key="link.to"
