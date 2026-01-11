@@ -32,7 +32,7 @@ const newAboutCollection = [
     >
       <template v-if="item.id === 'about-me'">
         <p>
-          Just a computer science student who loves websites a little too much.
+          Just a computer science student who love websites a little too much.
         </p>
         <p>
           My equivalent of people's .txt file would be .html, if that even makes
