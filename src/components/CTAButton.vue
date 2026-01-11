@@ -55,6 +55,7 @@ const targetLink = computed(() => {
     >
       <Icon
         class="shrink-0"
+        :inline="true"
         :icon="navItem?.icon ?? profileItem?.icon"
       />
       {{ navItem?.label ?? profileItem?.alt }}
@@ -63,6 +64,7 @@ const targetLink = computed(() => {
     <Icon
       aria-hidden="true"
       class="absolute size-12 self-end opacity-20"
+      :inline="true"
       :icon="
         (navItem?.trailingIcon ?? profileItem?.trailingIcon) ||
           'mdi:arrow-right-bold-circle'
