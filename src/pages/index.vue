@@ -13,7 +13,8 @@ import { navigation } from '../data/navigation'
       v-for="section in navigation"
       :id="section.anchor?.slice(1)"
       :key="section.to"
-      :header="section.header">
+      :header="section.header"
+    >
       <component :is="section.component" />
     </NewSection>
   </main>

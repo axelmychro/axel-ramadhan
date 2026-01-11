@@ -21,7 +21,6 @@ export const projects = [
     title: 'Template Vue Portfolio',
     subtitle: 'Build with vue & tailwind',
     preview: '',
-    description: '',
     date: '2025-12-27',
     description: '',
     repository: `template-vue-portfolio`,
