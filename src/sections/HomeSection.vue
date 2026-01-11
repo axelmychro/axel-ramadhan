@@ -22,7 +22,9 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
       <div class="flex flex-col sm:gap-2">
         <TransitionGroup name="fade-stagger">
           <ProfileCard
-            v-if="mounted"
+            :author="yourProfile.name"
+            :bio="yourProfile.bio"
+            :picture="yourProfile.picture"
             :style="{ '--i': 0 }"
             class="not-sm:border-b-0"
           />
@@ -33,21 +35,12 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
           name="fade-stagger"
         >
           <CTAButton
-            v-if="mounted"
             :style="{ '--i': 1 }"
             class="not-sm:border-b-0"
             profile-link="Email"
           />
-          <CTAButton
-            v-if="mounted"
-            :style="{ '--i': 2 }"
-            profile-link="LinkedIn"
-          />
-          <CTAButton
-            v-if="mounted"
-            :style="{ '--i': 3 }"
-            profile-link="Resume"
-          />
+          <CTAButton :style="{ '--i': 2 }" profile-link="LinkedIn" />
+          <CTAButton :style="{ '--i': 3 }" profile-link="Resume" />
         </TransitionGroup>
       </div>
     </div>
@@ -57,14 +50,14 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
         <div class="flex flex-col sm:gap-2 lg:gap-6">
           <TransitionGroup name="fade-stagger">
             <CTAButton
-              v-if="mounted"
               :style="{ '--i': 0 }"
               class="not-sm:border-b-0"
               section="Projects"
             >
               <span class="text-base tracking-wide text-pretty">
                 View latest:
-                <b class="font-bold">{{ latestProject.title }}</b></span>
+                <b class="font-bold">{{ latestProject.title }}</b></span
+              >
             </CTAButton>
           </TransitionGroup>
 
@@ -74,13 +67,11 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
             name="fade-stagger"
           >
             <CTAButton
-              v-if="mounted"
               :style="{ '--i': 1 }"
               class="not-sm:border-b-0"
               section="About"
             />
             <CTAButton
-              v-if="mounted"
               :style="{ '--i': 2 }"
               class="not-sm:border-b-0"
               section="Timeline"
@@ -88,12 +79,10 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
           </TransitionGroup>
 
           <TransitionGroup name="fade-stagger">
-            <CTAButton
-              v-if="mounted"
-              :style="{ '--i': 3 }"
-              section="Contact"
-            >
-              <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
+            <CTAButton :style="{ '--i': 3 }" section="Contact">
+              <span class="text-base tracking-wide text-pretty"
+                >I'm open for collaboration, <b>let's talk</b></span
+              >
             </CTAButton>
           </TransitionGroup>
         </div>

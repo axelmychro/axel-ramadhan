@@ -1,10 +1,13 @@
 import { defineAsyncComponent } from 'vue'
 
 // Configure the site, your profile, links, and projects here
+import profilePicture from '/profile.webp'
 import krabyPreview from '../assets/images/krabypaty-tebingtinggi.png'
+
 export const yourProfile = {
   name: 'Axel Ramadhan',
   bio: 'CS student, frontend developer, and Vue.js enthusiast',
+  picture: profilePicture,
 
   links: [
     {
