@@ -1,20 +1,17 @@
+import tlGdgIcon from '../assets/images/tl-gdg.webp'
+import tlUsuIcon from '../assets/images/tl-usu.webp'
+
 export const timeline = [
   {
-    date: '2024',
-    title: 'Started self-teaching frontend',
-    description: 'HTML, CSS, JS — lots of div soup.',
-    icon: 'lucide:sparkles',
+    date: '2025-08-18',
+    title: 'Universitas Sumatera Utara',
+    description: 'Started studying computer science.',
+    icon: tlUsuIcon,
   },
   {
     date: '2025',
-    title: 'First real projects',
-    description: 'Vue, Tailwind, actual users.',
-    icon: 'lucide:code',
-  },
-  {
-    date: '2026',
-    title: 'Portfolio & internships',
-    description: 'Shipping things with intent.',
-    icon: 'lucide:rocket',
+    title: 'GDGoC USU',
+    description: 'Selected as a member of the Web Development Pathway.',
+    icon: tlGdgIcon,
   },
 ]

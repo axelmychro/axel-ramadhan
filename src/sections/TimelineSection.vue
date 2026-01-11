@@ -1,43 +1,28 @@
 <script setup>
-// import { timeline } from '../data/timeline'
-// import { Icon } from '@iconify/vue'
+import TimeCapsule from '../components/TimeCapsule.vue'
+import { timeline } from '../data/timeline'
 </script>
 
 <template>
-  <div />
-  <!-- <div class="flex size-full flex-col items-center justify-center gap-8">
-    <div class="flex flex-col gap-4">
-      <div
-        v-for="(item, index) in timeline"
-        :key="index"
-        class="flex gap-4"
-      >
-        <div class="flex flex-col items-center">
-          <div
-            class="bg-primary flex h-16 w-16 items-center justify-center rounded-full border-2"
-          >
-            <Icon
-              :icon="item.icon"
-              class="size-8"
-            />
-          </div>
-          <div
-            v-if="index < timeline.length - 1"
-            class="bg-default h-12 w-1"
-          />
-        </div>
-        <div class="flex flex-col justify-center pb-8">
-          <h3 class="font-display text-lg font-bold">
-            {{ item.date }}
-          </h3>
-          <h4 class="font-display text-base font-semibold">
-            {{ item.title }}
-          </h4>
-          <p class="text-sm leading-relaxed tracking-wide text-pretty">
-            {{ item.description }}
-          </p>
-        </div>
-      </div>
+  <div class="flex size-full items-center justify-center">
+    <div class="">
+      <span class="flex items-center justify-end">
+        <h2
+          class="bg-invert text-default fontm size-fit rounded-tl-lg border-b-0 px-6 py-2 text-end font-serif text-base leading-none font-medium tracking-wide text-balance uppercase lg:text-2xl">
+          Timeline
+        </h2>
+      </span>
+      <TransitionGroup
+        class="flex flex-col items-center justify-center"
+        tag="div">
+        <TimeCapsule
+          v-for="event in timeline"
+          :key="event.title"
+          :title="event.title"
+          :description="event.description"
+          :date="event.date"
+          :icon="event.icon" />
+      </TransitionGroup>
     </div>
-  </div> -->
+  </div>
 </template>
