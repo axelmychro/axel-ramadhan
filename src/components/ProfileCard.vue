@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { yourProfile } from '../data/siteConfig'
 
 const props = defineProps({
@@ -14,6 +13,7 @@ const props = defineProps({
   picture: {
     type: String,
     required: false,
+    default: undefined,
   },
 })
 
@@ -42,7 +42,7 @@ const githubLinkExists = yourProfile.links.find(
             loading="lazy"
             alt=""
             role="none"
-          />
+          >
         </figure>
       </a>
       <h1
