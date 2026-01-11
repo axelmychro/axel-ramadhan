@@ -1,7 +1,12 @@
-import Home from '../pages/index.vue'
-import Resume from '../pages/resume.vue'
+import index from '../pages/index.vue'
+import resume from '../pages/resume.vue'
 
 export const routes = [
-  { path: '/', component: Home },
-  { path: '/resume', component: Resume },
+  { path: '/', component: index },
+  { path: '/resume', component: resume },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'error',
+    component: () => import('../error.vue'),
+  },
 ]
