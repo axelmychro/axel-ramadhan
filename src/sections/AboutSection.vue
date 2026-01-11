@@ -52,10 +52,10 @@ const newAboutCollection = [
           {{ isDark ? 'TypeScript' : 'JavaScript' }} and
           <a
             class="link"
-            href="https://www.arknights.global"
+            href="https://www.gryphline.com"
             target="_blank"
             rel="noopener noreferrer"
-          >Arknights</a>.
+          >Gryphline</a>.
         </p>
         <p>
           Design aside, your ever-presence here is thanks to

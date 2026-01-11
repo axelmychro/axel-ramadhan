@@ -1,8 +1,8 @@
 # Contingency Contract
 
 Built to showcase my projects. Design inspired by
-[Arknights](https://www.arknights.global/) UI with sharp contrast that feels
-like a terminal screen.
+[Gryphline](https://www.gryphline.com) UI with sharp contrast that feels like a
+terminal screen.
 
 ## Philosophy
 
