@@ -22,19 +22,20 @@ const profileItem = computed(() =>
   profile.links.find(link => link.label === props.content),
 )
 
-const resolved = computed(() =>
-  useResolvedLink(navItem.value ?? profileItem.value ?? { to: props.content }),
+const resolved = useResolvedLink(
+  navItem.value ?? profileItem.value ?? { to: props.content },
 )
 </script>
 
 <template>
   <component
     :is="resolved?.isInternal ? RouterLink : 'a'"
+    :key="resolved.to"
     :to="resolved?.isInternal ? resolved.to : undefined"
-    :href="!resolved?.isInternal ? resolved.to : undefined"
+    :href="resolved?.isInternal ? undefined : resolved.to"
     :target="resolved?.type === 'external' ? '_blank' : undefined"
     :rel="resolved?.type === 'external' ? 'noopener noreferrer' : undefined"
-    class="bg-default attention-primary relative flex flex-1 flex-col items-start justify-center border-2 p-2"
+    class="bg-default attention-primary relative flex flex-1 cursor-pointer flex-col items-start justify-center border-2 p-2"
   >
     <span
       class="xs:text-3xl flex items-center gap-2 p-2 font-serif text-2xl leading-none font-medium tracking-tight uppercase"
