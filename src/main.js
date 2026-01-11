@@ -8,6 +8,8 @@ import gg from '@iconify-json/gg/icons.json'
 import lucide from '@iconify-json/lucide/icons.json'
 import simpleIcons from '@iconify-json/simple-icons/icons.json'
 
-addCollection(gg, lucide, simpleIcons)
+addCollection(gg)
+addCollection(lucide)
+addCollection(simpleIcons)
 
 export const createApp = ViteSSG(App, { routes })
