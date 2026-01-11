@@ -26,7 +26,7 @@ export const useProjects = (projects, links) => {
   const formattedLatestDate = useFormattedDate(latestDateRaw)
 
   const githubUrl = links.find(link => link.label === 'GitHub')?.to
-  
+
   const repositoryUrl = computed(() => {
     if (!latestProject.value?.repository) return null
     return `${githubUrl}${latestProject.value.repository}`
