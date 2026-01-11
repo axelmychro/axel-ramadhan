@@ -119,7 +119,7 @@ html {
 }
 
 .attention-primary {
-  @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition duration-500 ease-out hover:-translate-y-0.5 hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-invert-shadow))] focus:shadow-md active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-invert))];
+  @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-invert-shadow))] focus:shadow-md active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-invert))];
 }
 
 .link {

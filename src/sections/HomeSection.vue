@@ -12,18 +12,12 @@ const { latestProject } = useProjects(projects, profile.links)
   <div class="flex size-full justify-evenly not-lg:flex-col">
     <div class="flex justify-center sm:items-center">
       <div class="flex flex-col sm:gap-2">
-        <Transition
-          name="fade-stagger"
-          appear
-        >
-          <ProfileCard
-            :author="profile.name"
-            :bio="profile.bio"
-            :picture="profile.picture"
-            :style="{ '--i': 0 }"
-            class="not-sm:border-b-0"
-          />
-        </Transition>
+        <ProfileCard
+          :author="profile.name"
+          :bio="profile.bio"
+          :picture="profile.picture"
+          class="not-sm:border-b-0"
+        />
         <TransitionGroup
           tag="div"
           class="flex justify-between not-lg:flex-col sm:gap-2"
@@ -32,18 +26,18 @@ const { latestProject } = useProjects(projects, profile.links)
         >
           <CTAButton
             key="0"
-            :style="{ '--i': 1 }"
+            :style="{ '--i': 0 }"
             class="not-sm:border-b-0"
             content="Email"
           />
           <CTAButton
             key="1"
-            :style="{ '--i': 2 }"
+            :style="{ '--i': 3 }"
             content="LinkedIn"
           />
           <CTAButton
             key="2"
-            :style="{ '--i': 3 }"
+            :style="{ '--i': 6 }"
             content="Resume"
           />
         </TransitionGroup>
@@ -76,13 +70,13 @@ const { latestProject } = useProjects(projects, profile.links)
           >
             <CTAButton
               key="0"
-              :style="{ '--i': 1 }"
+              :style="{ '--i': 2 }"
               class="not-sm:border-b-0"
               content="#about"
             />
             <CTAButton
               key="1"
-              :style="{ '--i': 2 }"
+              :style="{ '--i': 4 }"
               class="not-sm:border-b-0"
               content="#timeline"
             />
@@ -93,7 +87,7 @@ const { latestProject } = useProjects(projects, profile.links)
             appear
           >
             <CTAButton
-              :style="{ '--i': 3 }"
+              :style="{ '--i': 6 }"
               content="#contact"
             >
               <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
@@ -106,14 +100,21 @@ const { latestProject } = useProjects(projects, profile.links)
 </template>
 
 <style scoped>
-.fade-stagger-enter-active {
-  transition:
-    opacity 400ms ease-out,
-    scale 400ms ease-out;
-  transition-delay: calc(var(--i) * 200ms);
-}
 .fade-stagger-enter-from {
-  opacity: 0;
-  scale: 97%;
+  scale: 100%;
+  filter: drop-shadow(-2px 2px 0px var(--color-invert));
+}
+
+.fade-stagger-active-enter {
+  transition: scale 400ms ease-out;
+  transition: filter 400ms ease-out;
+  transition: background-color 400ms ease-out;
+}
+
+.fade-stagger-enter-to {
+  transition-delay: calc(var(--i) * 100ms + 1s);
+  background-color: var(--color-primary);
+  scale: 103%;
+  filter: drop-shadow(-6px 6px 0px var(--color-invert-shadow));
 }
 </style>
