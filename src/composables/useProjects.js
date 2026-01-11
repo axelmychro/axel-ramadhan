@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { useFormattedDate } from './useFormattedDate'
 
 export const useProjects = (projects, links) => {
   const validProjects = computed(() => {
@@ -20,18 +21,12 @@ export const useProjects = (projects, links) => {
     })
   })
 
-  const formattedLatestDate = computed(() => {
-    if (!latestProject.value) return ''
+  const latestDateRaw = computed(() => latestProject.value?.date)
 
-    const date = new Date(latestProject.value.date)
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    })
-  })
+  const formattedLatestDate = useFormattedDate(latestDateRaw)
 
   const githubUrl = links.find(link => link.label === 'GitHub')?.to
+  
   const repositoryUrl = computed(() => {
     if (!latestProject.value?.repository) return null
     return `${githubUrl}${latestProject.value.repository}`
