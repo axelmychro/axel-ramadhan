@@ -1,6 +1,7 @@
 <script setup>
 import { useDark } from '@vueuse/core'
-import { siteConfig, yourProfile } from '../data/siteConfig'
+import { profile } from '../data/profile'
+import { site } from '../data/site'
 import ColorModeSwitch from '../components/ColorModeSwitch.vue'
 
 const isDark = useDark()
@@ -9,13 +10,13 @@ const newAboutCollection = [
   {
     id: 'about-me',
     title: 'About me',
-    author: yourProfile.name,
-    icon: yourProfile.picture,
+    author: profile.name,
+    icon: profile.picture,
   },
   {
     id: 'about-site',
     title: 'This site',
-    author: siteConfig.name,
+    author: site.name,
     icon: '/apple-touch-icon.png',
   },
 ]

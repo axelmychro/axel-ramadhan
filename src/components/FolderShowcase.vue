@@ -1,11 +1,12 @@
 <script setup>
 import { useProjects } from '../composables/useProjects'
-import { yourProfile } from '../data/siteConfig'
+import { profile } from '../data/profile'
+import { projects } from '../data/projects'
 import { Icon } from '@iconify/vue'
 
 const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
-  yourProfile.projects,
-  yourProfile.links,
+  projects,
+  profile.links,
 )
 </script>
 

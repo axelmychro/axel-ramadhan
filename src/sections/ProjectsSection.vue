@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { yourProfile } from '../data/siteConfig'
+import { projects } from '../data/projects'
+import { profile } from '../data/profile'
 import { Icon } from '@iconify/vue'
 import FolderShowcase from '../components/FolderShowcase.vue'
 
@@ -32,7 +33,7 @@ import { computed } from 'vue'
 
 const otherProjects = computed(() => {
   if (!visible.value) return []
-  return yourProfile.projects.slice(0, yourProfile.projects.length - 1)
+  return projects.slice(0, projects.length - 1)
 })
 </script>
 
@@ -64,12 +65,12 @@ const otherProjects = computed(() => {
       >
         <li
           v-for="(project, index) in otherProjects"
-          :key="project.repository"
+          :key="index"
           :style="{ '--i': index }"
           class="bg-default attention-primary -rotate-2 border p-2 outline"
         >
           <a
-            :href="`${yourProfile.links.find(link => link.label === 'GitHub')?.to}/${project.repository}`"
+            :href="`${profile.links.find(link => link.label === 'GitHub')?.to}/${project.repository}`"
           >
             <div class="flex justify-between">
               <h3 class="font-display leading-none tracking-tighter">

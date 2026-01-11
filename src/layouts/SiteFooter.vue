@@ -1,26 +1,21 @@
 <script setup>
 import { computed } from 'vue'
-import { siteConfig, yourProfile } from '../data/siteConfig'
 import { RouterLink } from 'vue-router'
+import { useResolvedLink } from '../composables/useResolvedLink'
+import { site } from '../data/site'
+import { profile } from '../data/profile'
 
 const footerLinks = [
   { label: 'Back to top', to: '#' },
-  { label: "This site's repository", to: siteConfig.repository },
+  { label: "This site's repository", to: site.repository },
   { label: 'My resume', to: '/resume' },
 ]
 
 const resolvedLinks = computed(() =>
-  footerLinks.map(link => {
-    const isExternal = link.to.startsWith('http')
-    const isAnchor = link.to.startsWith('#')
-
-    return {
-      ...link,
-      isExternal,
-      isAnchor,
-      isInternal: !isExternal && !isAnchor,
-    }
-  }),
+  footerLinks.map(link => ({
+    ...link,
+    resolved: useResolvedLink(link),
+  })),
 )
 </script>
 
@@ -33,13 +28,11 @@ const resolvedLinks = computed(() =>
         class="flex flex-col gap-4"
         href="#"
       >
-        <span class="font-display text-4xl leading-none">{{
-          siteConfig.name
-        }}</span>
+        <span class="font-display text-4xl leading-none">{{ site.name }}</span>
         <div class="text-base leading-none tracking-wide">
           &copy;
           <time :datetime="new Date()">{{ new Date().getFullYear() }}</time>
-          {{ yourProfile.name }}
+          {{ profile.name }}
         </div>
       </a>
     </small>
@@ -51,12 +44,15 @@ const resolvedLinks = computed(() =>
         class="text-end font-serif text-base leading-none tracking-wider uppercase"
       >
         <component
-          :is="link.isInternal ? RouterLink : 'a'"
-          :class="`cursor-pointer`"
-          :to="link.isInternal ? link.to : undefined"
-          :href="!link.isInternal ? link.to : undefined"
-          :target="link.isExternal ? '_blank' : undefined"
-          :rel="link.isExternal ? 'noopener noreferrer' : undefined"
+          :is="link.resolved?.isInternal ? RouterLink : 'a'"
+          :to="link.resolved?.isInternal ? link.resolved.to : undefined"
+          :href="!link.resolved?.isInternal ? link.resolved.to : undefined"
+          :target="link.resolved?.type === 'external' ? '_blank' : undefined"
+          :rel="
+            link.resolved?.type === 'external'
+              ? 'noopener noreferrer'
+              : undefined
+          "
         >
           {{ link.label }}
         </component>

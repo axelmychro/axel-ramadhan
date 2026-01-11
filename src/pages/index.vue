@@ -3,15 +3,15 @@ import SiteHeader from '../layouts/SiteHeader.vue'
 import NewSection from '../components/NewSection.vue'
 import Overlay from '../layouts/Overlay.vue'
 import SiteFooter from '../layouts/SiteFooter.vue'
-import { navigationLinks } from '../data/siteConfig'
+import { navigation } from '../data/navigation'
 </script>
 
 <template>
   <SiteHeader />
   <main>
     <NewSection
-      v-for="section in navigationLinks"
-      :id="section.to.slice(1)"
+      v-for="section in navigation"
+      :id="section.to"
       :key="section.to"
       :header="section.header"
     >

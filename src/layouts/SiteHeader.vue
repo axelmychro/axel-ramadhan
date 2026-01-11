@@ -1,6 +1,7 @@
 <script setup>
 import { Icon } from '@iconify/vue'
-import { navigationLinks, siteConfig } from '../data/siteConfig'
+import { navigation } from '../data/navigation'
+import { site } from '../data/site'
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
     <nav class="flex items-center p-2">
       <a
         href="#"
-        :aria-label="`${siteConfig.name}, home`"
+        :aria-label="`${site.name}, home`"
       >
         <Icon
           aria-hidden="true"
@@ -24,11 +25,11 @@ import { navigationLinks, siteConfig } from '../data/siteConfig'
         class="flex items-center not-lg:hidden"
       >
         <li
-          v-for="link in navigationLinks"
-          :key="link.to"
+          v-for="link in navigation"
+          :key="link.anchor"
           class="text-shadow-default block truncate px-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase text-shadow-[0px_0px_4px_var(--tw-text-shadow-color)]"
         >
-          <a :href="link.to">
+          <a :href="link.anchor">
             {{ link.label }}
           </a>
         </li>

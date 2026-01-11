@@ -2,9 +2,10 @@
 import ProfileCard from '../components/ProfileCard.vue'
 import CTAButton from '../components/CTAButton.vue'
 
-import { yourProfile } from '../data/siteConfig'
+import { profile } from '../data/profile'
+import { projects } from '../data/projects'
 import { useProjects } from '../composables/useProjects'
-const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
+const { latestProject } = useProjects(projects, profile.links)
 </script>
 
 <template>
@@ -16,9 +17,9 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
           appear
         >
           <ProfileCard
-            :author="yourProfile.name"
-            :bio="yourProfile.bio"
-            :picture="yourProfile.picture"
+            :author="profile.name"
+            :bio="profile.bio"
+            :picture="profile.picture"
             :style="{ '--i': 0 }"
             class="not-sm:border-b-0"
           />
@@ -33,17 +34,17 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
             key="0"
             :style="{ '--i': 1 }"
             class="not-sm:border-b-0"
-            profile-link="Email"
+            content="Email"
           />
           <CTAButton
             key="1"
             :style="{ '--i': 2 }"
-            profile-link="LinkedIn"
+            content="LinkedIn"
           />
           <CTAButton
             key="2"
             :style="{ '--i': 3 }"
-            profile-link="Resume"
+            content="Resume"
           />
         </TransitionGroup>
       </div>
@@ -59,7 +60,7 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
             <CTAButton
               :style="{ '--i': 0 }"
               class="not-sm:border-b-0"
-              section="Projects"
+              content="#projects"
             >
               <span class="text-base tracking-wide text-pretty">
                 View latest:
@@ -77,13 +78,13 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
               key="0"
               :style="{ '--i': 1 }"
               class="not-sm:border-b-0"
-              section="About"
+              content="#about"
             />
             <CTAButton
               key="1"
               :style="{ '--i': 2 }"
               class="not-sm:border-b-0"
-              section="Timeline"
+              content="#timeline"
             />
           </TransitionGroup>
 
@@ -93,7 +94,7 @@ const { latestProject } = useProjects(yourProfile.projects, yourProfile.links)
           >
             <CTAButton
               :style="{ '--i': 3 }"
-              section="Contact"
+              content="#contact"
             >
               <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
             </CTAButton>

@@ -1,5 +1,5 @@
 <script setup>
-import { yourProfile } from '../data/siteConfig'
+import { profile } from '../data/profile'
 
 const props = defineProps({
   author: {
@@ -17,7 +17,7 @@ const props = defineProps({
   },
 })
 
-const githubLinkExists = yourProfile.links.find(
+const githubLinkExists = profile.links.find(
   link => link.label === 'GitHub',
 )?.label
 </script>
@@ -27,7 +27,7 @@ const githubLinkExists = yourProfile.links.find(
     <header class="flex flex-col items-center">
       <a
         :aria-label="
-          githubLinkExists ? `Visit ${yourProfile.name}'s GitHub` : undefined
+          githubLinkExists ? `Visit ${profile.name}'s GitHub` : undefined
         "
         :href="githubLinkExists ?? undefined"
         target="_blank"

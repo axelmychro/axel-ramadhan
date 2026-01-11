@@ -1,6 +1,6 @@
 <script setup>
 import { useMenuState } from '../composables/useMenuState'
-import { navigationLinks } from '../data/siteConfig'
+import { navigation } from '../data/navigation'
 import { Icon } from '@iconify/vue'
 import MenuButton from '../components/MenuButton.vue'
 import ColorModeSwitch from '../components/ColorModeSwitch.vue'
@@ -32,12 +32,12 @@ const isDark = useDark()
 
     <ul class="flex-1 backdrop-blur-xs transition duration-500 ease-out">
       <li
-        v-for="link in navigationLinks"
-        :key="link.to"
+        v-for="link in navigation"
+        :key="link?.anchor"
         @click="showMenu = false"
       >
         <a
-          :href="link.to"
+          :href="link?.anchor"
           :class="showMenu ? 'bg-default' : 'bg-transparent'"
           class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
         >
