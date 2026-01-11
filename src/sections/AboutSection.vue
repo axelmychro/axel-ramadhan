@@ -54,8 +54,7 @@ const newAboutCollection = [
             href="https://www.arknights.global"
             target="_blank"
             rel="noopener noreferrer"
-            >Arknights</a
-          >.
+          >Arknights</a>.
         </p>
         <p>
           Design aside, your ever-presence here is thanks to

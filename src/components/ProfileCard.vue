@@ -42,7 +42,7 @@ const githubLinkExists = yourProfile.links.find(
             loading="lazy"
             alt=""
             role="none"
-          />
+          >
         </figure>
       </a>
       <h1
