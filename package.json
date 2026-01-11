@@ -5,10 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prepare": "husky",
     "build": "vite-ssg build",
     "preview": "vite preview",
-    "test": "pnpm install && echo ----! Formatting (Prettier) && prettier . --write && echo ----! Formatting (ESLint) && eslint . --fix && vite-ssg build",
-    "prepare": "husky"
+    "test": "pnpm install  && vite-ssg build"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@iconify-json/gg": "^1.2.2",
@@ -30,6 +39,7 @@
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^17.0.0",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "unplugin-auto-import": "^20.3.0",
