@@ -21,13 +21,9 @@ const resolvedLinks = computed(() =>
 
 <template>
   <footer
-    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8 lg:px-4"
-  >
+    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8 lg:px-4">
     <small>
-      <a
-        class="flex flex-col gap-4"
-        href="#"
-      >
+      <a class="flex flex-col gap-4" href="#">
         <span class="font-display text-4xl leading-none">{{ site.name }}</span>
         <div class="text-base leading-none tracking-wide">
           &copy;
@@ -41,8 +37,7 @@ const resolvedLinks = computed(() =>
       <li
         v-for="link in resolvedLinks"
         :key="link.to"
-        class="text-end font-serif text-base leading-none tracking-wider uppercase"
-      >
+        class="tracking-wid text-end font-serif text-base leading-none font-medium uppercase">
         <component
           :is="link.resolved?.isInternal ? RouterLink : 'a'"
           :to="link.resolved?.isInternal ? link.resolved.to : undefined"
@@ -52,8 +47,7 @@ const resolvedLinks = computed(() =>
             link.resolved?.type === 'external'
               ? 'noopener noreferrer'
               : undefined
-          "
-        >
+          ">
           {{ link.label }}
         </component>
       </li>
