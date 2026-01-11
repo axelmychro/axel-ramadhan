@@ -3,8 +3,6 @@ import { useDark } from '@vueuse/core'
 import { siteConfig, yourProfile } from '../data/siteConfig'
 import ColorModeSwitch from '../components/ColorModeSwitch.vue'
 
-const myGitHub = yourProfile.links.find(link => link?.label === 'GitHub')?.to
-
 const isDark = useDark()
 
 const newAboutCollection = [
@@ -12,7 +10,7 @@ const newAboutCollection = [
     id: 'about-me',
     title: 'About me',
     author: yourProfile.name,
-    icon: myGitHub + '.png',
+    icon: yourProfile.picture,
   },
   {
     id: 'about-site',
@@ -56,7 +54,8 @@ const newAboutCollection = [
             href="https://www.arknights.global"
             target="_blank"
             rel="noopener noreferrer"
-          >Arknights</a>.
+            >Arknights</a
+          >.
         </p>
         <p>
           Design aside, your ever-presence here is thanks to

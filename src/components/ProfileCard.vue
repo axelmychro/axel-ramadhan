@@ -19,7 +19,7 @@ const props = defineProps({
 
 const githubLinkExists = yourProfile.links.find(
   link => link.label === 'GitHub',
-)?.to
+)?.label
 </script>
 
 <template>
@@ -42,7 +42,7 @@ const githubLinkExists = yourProfile.links.find(
             loading="lazy"
             alt=""
             role="none"
-          >
+          />
         </figure>
       </a>
       <h1
