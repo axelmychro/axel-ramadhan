@@ -32,12 +32,12 @@ const { latestProject } = useProjects(projects, profile.links)
           />
           <CTAButton
             key="1"
-            :style="{ '--i': 3 }"
+            :style="{ '--i': 1 }"
             content="LinkedIn"
           />
           <CTAButton
             key="2"
-            :style="{ '--i': 6 }"
+            :style="{ '--i': 2 }"
             content="Resume"
           />
         </TransitionGroup>
@@ -52,7 +52,7 @@ const { latestProject } = useProjects(projects, profile.links)
             appear
           >
             <CTAButton
-              :style="{ '--i': 0 }"
+              :style="{ '--i': 3 }"
               class="not-sm:border-b-0"
               content="#projects"
             >
@@ -70,13 +70,13 @@ const { latestProject } = useProjects(projects, profile.links)
           >
             <CTAButton
               key="0"
-              :style="{ '--i': 2 }"
+              :style="{ '--i': 4 }"
               class="not-sm:border-b-0"
               content="#about"
             />
             <CTAButton
               key="1"
-              :style="{ '--i': 4 }"
+              :style="{ '--i': 5 }"
               class="not-sm:border-b-0"
               content="#timeline"
             />
@@ -104,16 +104,12 @@ const { latestProject } = useProjects(projects, profile.links)
   scale: 100%;
   filter: drop-shadow(-2px 2px 0px var(--color-invert));
 }
-
 .fade-stagger-active-enter {
   transition: scale 400ms ease-out;
   transition: filter 400ms ease-out;
-  transition: background-color 400ms ease-out;
 }
-
 .fade-stagger-enter-to {
-  transition-delay: calc(var(--i) * 100ms + 1s);
-  background-color: var(--color-primary);
+  transition-delay: calc(var(--i) * 200ms + 2s);
   scale: 103%;
   filter: drop-shadow(-6px 6px 0px var(--color-invert-shadow));
 }
