@@ -2,7 +2,6 @@
 import { useDark } from '@vueuse/core'
 import { profile } from '../data/profile'
 import { site } from '../data/site'
-import ColorModeSwitch from '../components/ColorModeSwitch.vue'
 
 const isDark = useDark()
 
@@ -47,8 +46,8 @@ const newAboutCollection = [
 
       <template v-else-if="item.id === 'about-site'">
         <p>
-          You may have noticed that <ColorModeSwitch class="inline" /> icon at
-          top right. Correct, this site is essentially a love letter for
+          You may have noticed the familiar accent for these icons. Correct,
+          this site is essentially a love letter for
           {{ isDark ? 'TypeScript' : 'JavaScript' }} and
           <a
             class="link"

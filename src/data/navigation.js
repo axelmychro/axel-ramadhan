@@ -8,14 +8,13 @@ const sections = {
   contact: () => import('../sections/ContactSection.vue'),
 }
 
-// Configure your personal information here
+// Configure the site's navigation here
 export const navigation = [
   {
     label: 'Home',
     anchor: '#home',
     icon: 'gg:shape-rhombus',
     component: defineAsyncComponent(sections.home),
-    header: 'min-h-16', // Default to 16 (header nav height)
   },
   {
     label: 'Projects',
