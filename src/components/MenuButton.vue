@@ -6,9 +6,9 @@ const { showMenu } = useMenuState()
 
 const props = defineProps({
   size: {
-    type: Number,
+    type: String,
     required: false,
-    default: 4,
+    default: '',
   },
 })
 </script>
@@ -23,12 +23,14 @@ const props = defineProps({
     <Icon
       v-if="showMenu"
       icon="line-md:menu-to-close-alt-transition"
-      :class="`min-w-${props.size} min-h-${props.size} shrink-0`"
+      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      class="shrink-0"
     />
     <Icon
       v-else
       icon="line-md:close-to-menu-alt-transition"
-      :class="`min-w-${props.size} min-h-${props.size} shrink-0`"
+      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      class="shrink-0"
     />
   </button>
 </template>
