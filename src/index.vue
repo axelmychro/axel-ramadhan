@@ -1,8 +1,8 @@
 <script setup>
-import SiteHeader from '../layouts/SiteHeader.vue'
-import NewSection from '../components/NewSection.vue'
-import Overlay from '../layouts/Overlay.vue'
-import SiteFooter from '../layouts/SiteFooter.vue'
+import SiteHeader from './layouts/SiteHeader.vue'
+import NewSection from './components/NewSection.vue'
+import Overlay from './layouts/Overlay.vue'
+import SiteFooter from './layouts/SiteFooter.vue'
 import { navigation } from './data/navigation'
 </script>
 

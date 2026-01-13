@@ -1,4 +1,4 @@
-import index from '../pages/index.vue'
+import index from '../index.vue'
 import resume from '../pages/resume.vue'
 
 export const routes = [
