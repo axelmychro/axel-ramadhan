@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "prepare": "husky",
-    "format": "prettier . --write && eslint . --fix",
+    "write": "prettier . --write",
+    "fix": "eslint . --fix",
+    "format": "pnpm write && pnpm fix",
     "build": "vite-ssg build",
     "preview": "vite preview",
     "test": "pnpm install  && vite-ssg build"
