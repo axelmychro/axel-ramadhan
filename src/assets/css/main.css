@@ -98,7 +98,8 @@
 
   --color-invert: var(--color-zinc-800);
   --color-invert-soft: var(--color-zinc-600);
-  --color-invert-shadow: rgb(39, 39, 42, 0.5);
+  --color-shadow: rgba(39, 39, 42, 0.3);
+  --color-shadow-less: rgba(39, 39, 42, 0.1);
 }
 .dark {
   color-scheme: dark;
@@ -112,16 +113,29 @@
 
   --color-invert: #fff;
   --color-invert-soft: #aaa;
-  --color-invert-shadow: rgba(255, 255, 255, 0.5);
+  --color-shadow: rgba(255, 255, 255, 0.3);
+  --color-shadow-less: rgba(255, 255, 255, 0.1);
 }
 html {
   @apply bg-background text-foreground;
 }
 
 .attention-primary {
-  @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-invert))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-invert-shadow))] focus:shadow-md active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-invert))];
+  @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-shadow-less))] active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))];
 }
 
 .link {
   @apply text-sky-500 underline;
+}
+
+.sr-only {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }

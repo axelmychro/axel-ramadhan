@@ -102,7 +102,7 @@ const { latestProject } = useProjects(projects, profile.links)
 <style scoped>
 .fade-stagger-enter-from {
   scale: 100%;
-  filter: drop-shadow(-2px 2px 0px var(--color-invert));
+  filter: drop-shadow(-2px 2px 0px var(--color-shadow));
 }
 .fade-stagger-active-enter {
   transition: scale 400ms ease-out;
@@ -111,6 +111,6 @@ const { latestProject } = useProjects(projects, profile.links)
 .fade-stagger-enter-to {
   transition-delay: calc(var(--i) * 200ms + 2s);
   scale: 103%;
-  filter: drop-shadow(-6px 6px 0px var(--color-invert-shadow));
+  filter: drop-shadow(-6px 6px 0px var(--color-shadow-less));
 }
 </style>
