@@ -5,6 +5,7 @@ import { Icon } from '@iconify/vue'
 import MenuButton from '../components/MenuButton.vue'
 
 import ColorModeSwitch from '../components/ColorModeSwitch.vue'
+import { activeSection } from '../composables/useActiveSection'
 
 const { showMenu } = useMenuState()
 
@@ -35,7 +36,8 @@ const home = navigation.find(link => link?.anchor === '#home')
       <ul class="flex-1 bg-red-300">
         <li
           v-for="link in navigation"
-          :key="link?.anchor"
+          :key="link.anchor"
+          :class="activeSection === link.anchor ? 'bg-sky-300' : ''"
           @click="showMenu = false"
         >
           <a
