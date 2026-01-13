@@ -9,9 +9,8 @@ import {
 import { useMenuState } from '../composables/useMenuState'
 import { navigation } from '../data/navigation'
 
-const { showMenu } = useMenuState()
-
 const home = navigation.find(link => link?.anchor === '#home')
+const { showMenu } = useMenuState()
 </script>
 
 <template>
