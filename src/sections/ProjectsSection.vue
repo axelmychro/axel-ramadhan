@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { projects } from '../data/projects'
-import { profile } from '../data/profile'
 import { Icon } from '@iconify/vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { computed } from 'vue'
+
 import FolderShowcase from '../components/FolderShowcase.vue'
+import { profile } from '../data/profile'
+import { projects } from '../data/projects'
 
 const thisWholeSection = ref(null)
 const visible = ref(false)
@@ -29,8 +31,6 @@ onUnmounted(() => {
   observer?.disconnect()
 })
 
-import { computed } from 'vue'
-
 const otherProjects = computed(() => {
   if (!visible.value) return []
   return projects.slice(0, projects.length - 1)
@@ -41,7 +41,8 @@ const otherProjects = computed(() => {
   <div
     ref="thisWholeSection"
     :class="visible ? 'translate-y-0' : 'translate-y-8 opacity-0'"
-    class="flex size-full items-center justify-evenly transition-all duration-800 ease-out not-lg:flex-col">
+    class="flex size-full items-center justify-evenly transition-all duration-800 ease-out not-lg:flex-col"
+  >
     <div class="shrink-0">
       <FolderShowcase />
     </div>
@@ -49,23 +50,36 @@ const otherProjects = computed(() => {
     <div class="shrink-0 p-2">
       <div
         :class="visible ? 'scale-100 opacity-100' : 'scale-97 opacity-0'"
-        class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 transition delay-400 duration-400">
-        <Icon class="inline" icon="mdi:cube-unfolded" /> Other projects:
+        class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 transition delay-400 duration-400"
+      >
+        <Icon
+          class="inline"
+          icon="mdi:cube-unfolded"
+        /> Other projects:
       </div>
 
-      <TransitionGroup name="fade-stagger" tag="ul" class="flex flex-col gap-2">
+      <TransitionGroup
+        name="fade-stagger"
+        tag="ul"
+        class="flex flex-col gap-2"
+      >
         <li
           v-for="(project, index) in otherProjects"
           :key="index"
           :style="{ '--i': index }"
-          class="bg-default attention-primary -rotate-2 border p-2 outline">
+          class="bg-default attention-primary -rotate-2 border p-2 outline"
+        >
           <a
-            :href="`${profile.links.find(link => link.label === 'GitHub')?.to}/${project.repository}`">
+            :href="`${profile.links.find(link => link.label === 'GitHub')?.to}/${project.repository}`"
+          >
             <div class="flex justify-between">
               <h3 class="font-display text-lg leading-none tracking-tighter">
                 {{ project.title }}
               </h3>
-              <time class="text-sm" :datetime="project.date">{{
+              <time
+                class="text-sm"
+                :datetime="project.date"
+              >{{
                 project.date.slice(0, 4)
               }}</time>
             </div>

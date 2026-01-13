@@ -1,6 +1,7 @@
 <script setup>
-import { useMenuState } from '../composables/useMenuState'
 import { Icon } from '@iconify/vue'
+
+import { useMenuState } from '../composables/useMenuState'
 
 const { showMenu } = useMenuState()
 

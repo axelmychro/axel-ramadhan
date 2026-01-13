@@ -1,8 +1,9 @@
 <script setup>
+import { Icon } from '@iconify/vue'
+
 import { useProjects } from '../composables/useProjects'
 import { profile } from '../data/profile'
 import { projects } from '../data/projects'
-import { Icon } from '@iconify/vue'
 
 const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
   projects,

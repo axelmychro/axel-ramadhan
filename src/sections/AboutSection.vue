@@ -1,5 +1,6 @@
 <script setup>
 import { useDark } from '@vueuse/core'
+
 import { profile } from '../data/profile'
 import { site } from '../data/site'
 

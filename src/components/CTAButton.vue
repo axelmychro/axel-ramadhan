@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
+import { useResolvedLink } from '../composables/useResolvedLink'
 import { navigation } from '../data/navigation'
 import { profile } from '../data/profile'
-import { useResolvedLink } from '../composables/useResolvedLink'
 
 const props = defineProps({
   content: {

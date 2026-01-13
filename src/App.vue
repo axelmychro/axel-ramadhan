@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
-import { initializeLenis, destroyLenis } from './composables/useLenis'
 import { RouterView } from 'vue-router'
+
+import { initializeLenis, destroyLenis } from './composables/useLenis'
 
 onMounted(initializeLenis)
 onUnmounted(destroyLenis)

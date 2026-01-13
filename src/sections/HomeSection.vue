@@ -1,10 +1,9 @@
 <script setup>
-import ProfileCard from '../components/ProfileCard.vue'
 import CTAButton from '../components/CTAButton.vue'
-
+import ProfileCard from '../components/ProfileCard.vue'
+import { useProjects } from '../composables/useProjects'
 import { profile } from '../data/profile'
 import { projects } from '../data/projects'
-import { useProjects } from '../composables/useProjects'
 const { latestProject } = useProjects(projects, profile.links)
 </script>
 

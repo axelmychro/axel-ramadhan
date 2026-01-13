@@ -12,6 +12,7 @@ const props = defineProps({
 })
 
 import { onMounted, onUnmounted } from 'vue'
+
 import { setActiveSection } from '../composables/useActiveSection'
 
 let observer

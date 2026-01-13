@@ -1,8 +1,8 @@
 <script setup>
 import NewSection from './components/NewSection.vue'
+import { navigation } from './data/navigation'
 import SiteBar from './layouts/SiteBar.vue'
 import SiteFooter from './layouts/SiteFooter.vue'
-import { navigation } from './data/navigation'
 </script>
 
 <template>
