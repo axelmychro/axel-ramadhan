@@ -1,11 +1,13 @@
 <script setup>
+import { Icon } from '@iconify/vue'
+
+import MenuButton from '../components/MenuButton.vue'
+import {
+  activeSection,
+  setActiveSection,
+} from '../composables/useActiveSection'
 import { useMenuState } from '../composables/useMenuState'
 import { navigation } from '../data/navigation'
-import { Icon } from '@iconify/vue'
-import MenuButton from '../components/MenuButton.vue'
-
-import ColorModeSwitch from '../components/ColorModeSwitch.vue'
-import { activeSection } from '../composables/useActiveSection'
 
 const { showMenu } = useMenuState()
 
@@ -14,9 +16,15 @@ const home = navigation.find(link => link?.anchor === '#home')
 
 <template>
   <header
-    class="bg-default shadow-invert/20 relative top-0 right-0 left-0 z-50 shrink-0 shadow-sm not-md:fixed not-md:max-h-12 not-md:min-h-12 md:max-w-12 md:min-w-12 md:pt-8"
+    :class="[
+      'top-0 right-0 left-0 not-md:fixed not-md:max-h-12 not-md:min-h-12 not-md:min-w-full',
+      'md:max-w-12 md:min-w-12 md:flex-col',
+    ]"
+    class="bg-default shadow-shadow-less z-50 flex shrink-0 items-center justify-start shadow-md"
   >
-    <nav class="flex items-center justify-end border-b-2 p-2 md:hidden">
+    <nav
+      class="sticky top-0 flex flex-1 items-center justify-end p-2 md:hidden"
+    >
       <a
         :href="home.anchor"
         class="flex-1"
@@ -29,30 +37,36 @@ const home = navigation.find(link => link?.anchor === '#home')
 
     <!-- and 768px only -->
     <nav
-      class="sticky top-0 right-0 left-0 z-40 hidden flex-col overflow-auto bg-sky-300 ease-out md:flex"
-      @mouseenter="showMenu = true"
-      @mouseleave="showMenu = false"
+      :class="[
+        showMenu ? 'not-md:translate-y-1/2' : 'not-md:translate-y-full',
+        'top-0 right-0 bottom-0 left-0 not-md:fixed not-md:border-t-8 not-md:transition-transform not-md:duration-500 md:sticky md:flex',
+      ]"
+      class="bg-default z-40 order-first min-w-12 flex-col overflow-auto pt-12 ease-out"
     >
-      <ul class="flex-1 bg-red-300">
+      <ul class="flex flex-col">
         <li
           v-for="link in navigation"
           :key="link.anchor"
-          :class="activeSection === link.anchor ? 'bg-sky-300' : ''"
-          @click="showMenu = false"
+          class="flex items-center justify-start not-md:p-1"
+          @click="((showMenu = false), setActiveSection(link.anchor))"
         >
           <a
             :href="link?.anchor"
-            class="flex gap-2 border-b-2 p-2 font-serif text-[2rem] leading-none font-medium tracking-tight uppercase transition-colors duration-500 ease-out select-none"
+            :class="
+              activeSection === link.anchor
+                ? 'bg-default-soft text-invert border-r-8'
+                : 'text-invert-soft'
+            "
+            class="flex flex-1 items-center justify-start p-1 transition-colors duration-400 ease-out select-none"
           >
             <Icon
               class="min-h-8 min-w-8 shrink-0"
               :icon="link.icon"
             />
-            {{ link.label }}
+            <span class="md:sr-only">{{ link.label }}</span>
           </a>
         </li>
       </ul>
-      <ColorModeSwitch class="flex1" />
     </nav>
   </header>
 </template>
