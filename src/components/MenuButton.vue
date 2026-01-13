@@ -1,6 +1,6 @@
 <script setup>
-import { Icon } from '@iconify/vue'
 import { useMenuState } from '../composables/useMenuState'
+import { Icon } from '@iconify/vue'
 
 const { showMenu } = useMenuState()
 
@@ -8,7 +8,7 @@ const props = defineProps({
   size: {
     type: String,
     required: false,
-    default: '',
+    default: '8',
   },
 })
 </script>

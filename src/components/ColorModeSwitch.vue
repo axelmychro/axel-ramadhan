@@ -1,12 +1,20 @@
 <script setup>
 import { useDark, useToggle } from '@vueuse/core'
+import { Icon } from '@iconify/vue'
+
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 function switchMode() {
   toggleDark()
 }
 
-import { Icon } from '@iconify/vue'
+const props = defineProps({
+  size: {
+    type: String,
+    required: false,
+    default: '8',
+  },
+})
 </script>
 
 <template>
@@ -18,12 +26,14 @@ import { Icon } from '@iconify/vue'
   >
     <Icon
       v-if="isDark"
-      class="border-invert min-h-8 min-w-8 border"
+      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      class="shrink-0"
       icon="devicon:typescript"
     />
     <Icon
       v-else
-      class="border-invert min-h-8 min-w-8 border"
+      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      class="shrink-0"
       icon="devicon:javascript"
     />
   </button>
