@@ -20,7 +20,7 @@ import { timeline } from '../data/timeline'
     >
       <TimeCapsule
         v-for="event in timeline"
-        :key="event.title"
+        :key="`${event.date}-${event.title}`"
         :title="event.title"
         :description="event.description"
         :date="event.date"
