@@ -27,7 +27,7 @@ const formattedDate = useFormattedDate(props.date, { hideDay: true })
 
 <template>
   <article
-    class="bg-default xs:border-x-2 xs:px-2 w-full max-w-xs border-y-2 py-2 first:rounded-tl-sm last:rounded-b-sm"
+    class="bg-default xs:border-x-2 xs:px-2 w-full max-w-xs border-y-2 py-2 last:rounded-b-sm"
   >
     <header class="flex justify-between px-2">
       <span class="bg h-fit">
@@ -40,9 +40,7 @@ const formattedDate = useFormattedDate(props.date, { hideDay: true })
           v-if="props.date"
           class="text-sm"
           :datetime="props.date"
-        >{{
-          formattedDate
-        }}</time>
+        >{{ formattedDate }}</time>
       </span>
 
       <figure
