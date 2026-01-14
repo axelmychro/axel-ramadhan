@@ -2,10 +2,7 @@
 import { Icon } from '@iconify/vue'
 
 import MenuButton from '../components/MenuButton.vue'
-import {
-  activeSection,
-  setActiveSection,
-} from '../composables/useActiveSection'
+import { activeSection } from '../composables/useActiveSection'
 import { useMenuState } from '../composables/useMenuState'
 import { navigation } from '../data/navigation'
 
@@ -47,7 +44,7 @@ const { showMenu } = useMenuState()
           v-for="link in navigation"
           :key="link.anchor"
           class="flex items-center justify-start not-md:p-1"
-          @click="((showMenu = false), setActiveSection(link.anchor))"
+          @click="showMenu = false"
         >
           <a
             :href="link?.anchor"
