@@ -9,7 +9,7 @@ export const timeline = [
     icon: tlUsuIcon,
   },
   {
-    date: '2025',
+    date: '2025-10-18',
     title: 'GDGoC USU',
     description: 'Selected as a member of the Web Development Pathway.',
     icon: tlGdgIcon,
