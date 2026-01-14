@@ -34,6 +34,6 @@ export const projects = [
     description:
       'A small local burger shop in Tebing Tinggi. This website helps customers quickly view featured menu items and order via GoFood or GrabFood.',
     repository: 'krabypaty-tebingtinggi',
-    icons: ['devicon:vitejs', 'logos:preact'],
+    icons: ['devicon:vitejs', 'logos:preact', 'devicon:tailwindcss'],
   },
 ]
