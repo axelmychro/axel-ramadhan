@@ -9,7 +9,7 @@ import SiteFooter from './layouts/SiteFooter.vue'
   <div class="flex not-md:flex-col">
     <SiteBar />
     <main
-      class="flex flex-1 flex-col items-center justify-center md:order-first"
+      class="flex h-full w-full flex-1 shrink-0 flex-col items-center justify-center md:order-first"
     >
       <NewSection
         v-for="section in navigation"
