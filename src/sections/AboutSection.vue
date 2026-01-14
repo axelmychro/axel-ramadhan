@@ -51,7 +51,7 @@ const newAboutCollection = [
           this site is essentially a love letter for
           {{ isDark ? 'TypeScript' : 'JavaScript' }} and
           <a
-            class="link"
+            class="underline"
             href="https://www.gryphline.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -59,9 +59,9 @@ const newAboutCollection = [
         </p>
         <p>
           Design aside, your ever-presence here is thanks to
-          <b><span class="text-vue">Vue</span> wizardry</b> that clumps my
+          <b>Vue wizardry</b> that clumps my
           <code>div Soups&trade;</code> nicely and thus finally be able to
-          <b>hex</b> (and fix) this very section.
+          <i>hocus focus trulala</i> this very section.
         </p>
       </template>
     </NewArticle>

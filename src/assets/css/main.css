@@ -124,10 +124,6 @@ html {
   @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-shadow-less))] active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))];
 }
 
-.link {
-  @apply text-sky-500 underline;
-}
-
 .sr-only {
   border: 0;
   clip-path: inset(50%);
