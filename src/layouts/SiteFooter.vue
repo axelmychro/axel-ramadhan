@@ -1,4 +1,5 @@
 <script setup>
+import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
@@ -15,14 +16,14 @@ const footerLinks = [
 const resolvedLinks = computed(() =>
   footerLinks.map(link => ({
     ...link,
-    resolved: useResolvedLink(link),
+    resolved: useResolvedLink(link).value,
   })),
 )
 </script>
 
 <template>
   <footer
-    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8 lg:px-4"
+    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8"
   >
     <small>
       <a
@@ -38,11 +39,33 @@ const resolvedLinks = computed(() =>
       </a>
     </small>
 
-    <ul class="flex flex-col gap-4 sm:pr-12">
+    <article>
+      <h4 class="text-center text-sm">
+        Not for business?
+      </h4>
+      <ul class="flex items-center justify-center gap-2">
+        <li
+          v-for="link in profile.links.slice(4)"
+          :key="link.label"
+        >
+          <a
+            class="text-center"
+            :href="link.to"
+            target="_blank"
+            rel="noopener noreferrer"
+          ><Icon
+            class="min-h-6 min-w-6"
+            :icon="link.icon"
+          /><span class="sr-only">{{ link.label }}</span></a>
+        </li>
+      </ul>
+    </article>
+
+    <ul class="flex flex-col gap-4">
       <li
         v-for="link in resolvedLinks"
         :key="link.to"
-        class="tracking-wid text-end font-serif text-base leading-none font-medium uppercase"
+        class="text-end"
       >
         <component
           :is="link.resolved?.isInternal ? RouterLink : 'a'"
@@ -54,6 +77,7 @@ const resolvedLinks = computed(() =>
               ? 'noopener noreferrer'
               : undefined
           "
+          class="cursor-pointer font-serif text-base leading-none font-medium tracking-wide uppercase"
         >
           {{ link.label }}
         </component>

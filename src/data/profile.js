@@ -33,6 +33,10 @@ export const profile = {
       to: 'https://www.instagram.com/axelmychro',
       icon: 'mdi:instagram',
     },
-    { label: 'Discord', to: 'https://discord.com/users/', icon: 'mdi:discord' },
+    {
+      label: 'Discord',
+      to: 'https://discord.com/users/1460835416294031371',
+      icon: 'mdi:discord',
+    },
   ],
 }
