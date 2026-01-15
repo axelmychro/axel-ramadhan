@@ -17,9 +17,7 @@ const props = defineProps({
   },
 })
 
-const githubLinkExists = profile.links.find(
-  link => link.label === 'GitHub',
-)?.label
+const githubLinkExists = profile.links.find(link => link.label === 'GitHub')?.to
 </script>
 
 <template>
@@ -29,7 +27,7 @@ const githubLinkExists = profile.links.find(
         :aria-label="
           githubLinkExists ? `Visit ${profile.name}'s GitHub` : undefined
         "
-        :href="githubLinkExists ?? undefined"
+        :href="githubLinkExists"
         target="_blank"
         rel="noopener noreferrer"
       >
