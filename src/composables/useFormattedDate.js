@@ -1,22 +1,22 @@
 import { computed, unref } from 'vue'
 
 export const useFormattedDate = (dateSource, options = {}) => {
-    return computed(() => {
-        const value = unref(dateSource)
-        if (!value) return ''
+  return computed(() => {
+    const value = unref(dateSource)
+    if (!value) return ''
 
-        const date = new Date(value)
-        if (isNaN(date.getTime())) return ''
+    const date = new Date(value)
+    if (isNaN(date.getTime())) return ''
 
-        const formatOptions = {
-            month: 'short',
-            year: 'numeric',
-        }
+    const formatOptions = {
+      month: 'short',
+      year: 'numeric',
+    }
 
-        if (!options.hideDay) {
-            formatOptions.day = 'numeric'
-        }
+    if (!options.hideDay) {
+      formatOptions.day = 'numeric'
+    }
 
-        return date.toLocaleDateString('en-US', formatOptions)
-    })
+    return date.toLocaleDateString('en-US', formatOptions)
+  })
 }

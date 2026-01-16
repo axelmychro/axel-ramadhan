@@ -6,8 +6,8 @@ import { profile } from '../data/profile'
 import { projects } from '../data/projects'
 
 const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
-    projects,
-    profile.links,
+  projects,
+  profile.links,
 )
 </script>
 
@@ -32,9 +32,7 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
           >
             {{ latestProject?.title }}
           </h2>
-          <div
-            class="mt-2 text-lg tracking-tight text-pretty sm:text-xl"
-          >
+          <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
             {{ latestProject?.subtitle }}
           </div>
           <time

@@ -5,18 +5,18 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: '/',
-    build: {
-        sourcemap: true,
-        assetsInlineLimit: 0,
+  base: '/',
+  build: {
+    sourcemap: true,
+    assetsInlineLimit: 0,
+  },
+  plugins: [vue(), tailwindcss(), Components()],
+  ssgOptions: {
+    entry: './src/main.js',
+    script: 'async',
+    formatting: 'minify',
+    crittersOptions: {
+      pruneSource: true,
     },
-    plugins: [vue(), tailwindcss(), Components()],
-    ssgOptions: {
-        entry: './src/main.js',
-        script: 'async',
-        formatting: 'minify',
-        crittersOptions: {
-            pruneSource: true,
-        },
-    },
+  },
 })
