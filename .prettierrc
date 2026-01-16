@@ -1,11 +1,11 @@
 {
-    "plugins": ["prettier-plugin-tailwindcss"],
-    "proseWrap": "always",
-    "printWidth": 80,
-    "singleQuote": true,
-    "semi": false,
-    "arrowParens": "avoid",
-    "bracketSameLine": false,
-    "singleAttributePerLine": true,
-    "tabWidth": 4
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "proseWrap": "always",
+  "printWidth": 80,
+  "singleQuote": true,
+  "semi": false,
+  "arrowParens": "avoid",
+  "bracketSameLine": false,
+  "singleAttributePerLine": true,
+  "tabWidth": 2
 }
