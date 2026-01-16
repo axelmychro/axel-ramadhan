@@ -8,16 +8,16 @@ import { profile } from '../data/profile'
 import { site } from '../data/site'
 
 const footerLinks = [
-  { label: 'Back to top', to: '#' },
-  { label: "This site's repository", to: site.repository },
-  { label: 'My resume', to: '/resume' },
+    { label: 'Back to top', to: '#' },
+    { label: "This site's repository", to: site.repository },
+    { label: 'My resume', to: '/resume' },
 ]
 
 const resolvedLinks = computed(() =>
-  footerLinks.map(link => ({
-    ...link,
-    resolved: useResolvedLink(link).value,
-  })),
+    footerLinks.map(link => ({
+        ...link,
+        resolved: useResolvedLink(link).value,
+    })),
 )
 </script>
 
@@ -30,10 +30,14 @@ const resolvedLinks = computed(() =>
         class="flex flex-col gap-4"
         href="#"
       >
-        <span class="font-display text-4xl leading-none">{{ site.name }}</span>
+        <span class="font-display text-4xl leading-none">{{
+          site.name
+        }}</span>
         <div class="text-base leading-none tracking-wide">
           &copy;
-          <time :datetime="new Date()">{{ new Date().getFullYear() }}</time>
+          <time :datetime="new Date()">{{
+            new Date().getFullYear()
+          }}</time>
           {{ profile.name }}
         </div>
       </a>
@@ -69,9 +73,19 @@ const resolvedLinks = computed(() =>
       >
         <component
           :is="link.resolved?.isInternal ? RouterLink : 'a'"
-          :to="link.resolved?.isInternal ? link.resolved.to : undefined"
-          :href="!link.resolved?.isInternal ? link.resolved.to : undefined"
-          :target="link.resolved?.type === 'external' ? '_blank' : undefined"
+          :to="
+            link.resolved?.isInternal ? link.resolved.to : undefined
+          "
+          :href="
+            !link.resolved?.isInternal
+              ? link.resolved.to
+              : undefined
+          "
+          :target="
+            link.resolved?.type === 'external'
+              ? '_blank'
+              : undefined
+          "
           :rel="
             link.resolved?.type === 'external'
               ? 'noopener noreferrer'

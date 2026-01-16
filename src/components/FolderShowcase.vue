@@ -6,8 +6,8 @@ import { profile } from '../data/profile'
 import { projects } from '../data/projects'
 
 const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
-  projects,
-  profile.links,
+    projects,
+    profile.links,
 )
 </script>
 
@@ -17,7 +17,8 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
   ><Icon
     class="inline"
     icon="mdi:cube-outline"
-  /> Latest project:</span>
+  />
+    Latest project:</span>
   <div
     class="xs:border-x-2 flex rounded-tr-sm rounded-b-sm border-y-2 not-lg:flex-col"
   >
@@ -31,15 +32,15 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
           >
             {{ latestProject?.title }}
           </h2>
-          <div class="mt-2 text-lg tracking-tight text-pretty sm:text-xl">
+          <div
+            class="mt-2 text-lg tracking-tight text-pretty sm:text-xl"
+          >
             {{ latestProject?.subtitle }}
           </div>
           <time
             class="text-sm"
             :datetime="latestProject?.date"
-          >{{
-            formattedLatestDate
-          }}</time>
+          >{{ formattedLatestDate }}</time>
         </div>
 
         <div class="flex shrink-0 flex-col gap-2">

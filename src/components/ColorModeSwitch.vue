@@ -5,15 +5,15 @@ import { useDark, useToggle } from '@vueuse/core'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 function switchMode() {
-  toggleDark()
+    toggleDark()
 }
 
 const props = defineProps({
-  size: {
-    type: String,
-    required: false,
-    default: '8',
-  },
+    size: {
+        type: String,
+        required: false,
+        default: '8',
+    },
 })
 </script>
 
@@ -26,13 +26,17 @@ const props = defineProps({
   >
     <Icon
       v-if="isDark"
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      :class="
+        props.size ? `min-w-${props.size} min-h-${props.size} ` : ''
+      "
       class="shrink-0"
       icon="devicon:typescript"
     />
     <Icon
       v-else
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      :class="
+        props.size ? `min-w-${props.size} min-h-${props.size} ` : ''
+      "
       class="shrink-0"
       icon="devicon:javascript"
     />

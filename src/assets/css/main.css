@@ -1,137 +1,137 @@
 @font-face {
-  font-display: swap;
-  font-family: 'Dela Gothic One';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/dela-gothic-one-v19-latin-regular.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Dela Gothic One';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/dela-gothic-one-v19-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/oswald-v57-latin-regular.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/oswald-v57-latin-regular.woff2') format('woff2');
 }
 @font-face {
-  font-display: swap;
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/oswald-v57-latin-500.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/oswald-v57-latin-500.woff2') format('woff2');
 }
 @font-face {
-  font-display: swap;
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/oswald-v57-latin-600.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/oswald-v57-latin-600.woff2') format('woff2');
 }
 @font-face {
-  font-display: swap;
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/oswald-v57-latin-700.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Zain';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/zain-v4-latin-regular.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Zain';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/fonts/zain-v4-latin-italic.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Zain';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/zain-v4-latin-700.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/oswald-v57-latin-700.woff2') format('woff2');
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/fira-code-v27-latin-regular.woff2') format('woff2');
+    font-display: swap;
+    font-family: 'Zain';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/zain-v4-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Zain';
+    font-style: italic;
+    font-weight: 400;
+    src: url('/fonts/zain-v4-latin-italic.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Zain';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/zain-v4-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/fira-code-v27-latin-regular.woff2') format('woff2');
 }
 
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: auto;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto;
 
-  --color-primary: #f7df1e;
+    --color-primary: #f7df1e;
 }
 @theme {
-  --breakpoint-xs: 320px;
+    --breakpoint-xs: 320px;
 
-  --font-display: 'Dela Gothic One', display;
-  --font-sans: 'Zain', sans-serif;
-  --font-serif: 'Oswald', serif;
-  --font-mono: 'Fira Code', monospace;
+    --font-display: 'Dela Gothic One', display;
+    --font-sans: 'Zain', sans-serif;
+    --font-serif: 'Oswald', serif;
+    --font-mono: 'Fira Code', monospace;
 
-  --color-js: #f7df1e;
-  --color-ts: #3178c6;
-  --color-vue: #4fc08d;
+    --color-js: #f7df1e;
+    --color-ts: #3178c6;
+    --color-vue: #4fc08d;
 
-  --color-background: #fff;
-  --color-foreground: var(--color-zinc-800);
+    --color-background: #fff;
+    --color-foreground: var(--color-zinc-800);
 
-  --color-primary: var(--color-js);
-  --color-default: #fff;
-  --color-default-soft: #aaa;
+    --color-primary: var(--color-js);
+    --color-default: #fff;
+    --color-default-soft: #aaa;
 
-  --color-invert: var(--color-zinc-800);
-  --color-invert-soft: var(--color-zinc-600);
-  --color-shadow: rgba(39, 39, 42, 0.3);
-  --color-shadow-less: rgba(39, 39, 42, 0.1);
+    --color-invert: var(--color-zinc-800);
+    --color-invert-soft: var(--color-zinc-600);
+    --color-shadow: rgba(39, 39, 42, 0.3);
+    --color-shadow-less: rgba(39, 39, 42, 0.1);
 }
 .dark {
-  color-scheme: dark;
+    color-scheme: dark;
 
-  --color-background: var(--color-zinc-800);
-  --color-foreground: #fff;
+    --color-background: var(--color-zinc-800);
+    --color-foreground: #fff;
 
-  --color-primary: var(--color-ts);
-  --color-default: var(--color-zinc-800);
-  --color-default-soft: var(--color-zinc-600);
+    --color-primary: var(--color-ts);
+    --color-default: var(--color-zinc-800);
+    --color-default-soft: var(--color-zinc-600);
 
-  --color-invert: #fff;
-  --color-invert-soft: #aaa;
-  --color-shadow: rgba(255, 255, 255, 0.3);
-  --color-shadow-less: rgba(255, 255, 255, 0.1);
+    --color-invert: #fff;
+    --color-invert-soft: #aaa;
+    --color-shadow: rgba(255, 255, 255, 0.3);
+    --color-shadow-less: rgba(255, 255, 255, 0.1);
 }
 html {
-  @apply bg-background text-foreground;
+    @apply bg-background text-foreground;
 }
 
 .attention-primary {
-  @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-shadow-less))] active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))];
+    @apply hover:bg-primary focus:bg-primary filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))] transition duration-400 ease-out hover:scale-103 hover:filter-[drop-shadow(-6px_6px_0px_var(--color-shadow-less))] active:scale-100 active:filter-[drop-shadow(-2px_2px_0px_var(--color-shadow))];
 }
 
 .sr-only {
-  border: 0;
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
 }

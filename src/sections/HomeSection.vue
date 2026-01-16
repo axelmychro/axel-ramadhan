@@ -57,7 +57,9 @@ const { latestProject } = useProjects(projects, profile.links)
             >
               <span class="text-base tracking-wide text-pretty">
                 View latest:
-                <b class="font-bold">{{ latestProject.title }}</b></span>
+                <b class="font-bold">{{
+                  latestProject.title
+                }}</b></span>
             </CTAButton>
           </Transition>
 
@@ -89,7 +91,8 @@ const { latestProject } = useProjects(projects, profile.links)
               :style="{ '--i': 6 }"
               content="#contact"
             >
-              <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
+              <span class="text-base tracking-wide text-pretty">I'm open for collaboration,
+                <b>let's talk</b></span>
             </CTAButton>
           </Transition>
         </div>
@@ -100,16 +103,16 @@ const { latestProject } = useProjects(projects, profile.links)
 
 <style scoped>
 .fade-stagger-enter-from {
-  scale: 100%;
-  filter: drop-shadow(-2px 2px 0px var(--color-shadow));
+    scale: 100%;
+    filter: drop-shadow(-2px 2px 0px var(--color-shadow));
 }
 .fade-stagger-active-enter {
-  transition: scale 400ms ease-out;
-  transition: filter 400ms ease-out;
+    transition: scale 400ms ease-out;
+    transition: filter 400ms ease-out;
 }
 .fade-stagger-enter-to {
-  transition-delay: calc(var(--i) * 200ms + 2s);
-  scale: 103%;
-  filter: drop-shadow(-6px 6px 0px var(--color-shadow-less));
+    transition-delay: calc(var(--i) * 200ms + 2s);
+    scale: 103%;
+    filter: drop-shadow(-6px 6px 0px var(--color-shadow-less));
 }
 </style>

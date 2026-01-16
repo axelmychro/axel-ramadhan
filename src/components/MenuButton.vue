@@ -6,11 +6,11 @@ import { useMenuState } from '../composables/useMenuState'
 const { showMenu } = useMenuState()
 
 const props = defineProps({
-  size: {
-    type: String,
-    required: false,
-    default: '8',
-  },
+    size: {
+        type: String,
+        required: false,
+        default: '8',
+    },
 })
 </script>
 
@@ -24,13 +24,17 @@ const props = defineProps({
     <Icon
       v-if="showMenu"
       icon="line-md:menu-to-close-alt-transition"
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      :class="
+        props.size ? `min-w-${props.size} min-h-${props.size} ` : ''
+      "
       class="shrink-0"
     />
     <Icon
       v-else
       icon="line-md:close-to-menu-alt-transition"
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      :class="
+        props.size ? `min-w-${props.size} min-h-${props.size} ` : ''
+      "
       class="shrink-0"
     />
   </button>

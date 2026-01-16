@@ -25,14 +25,18 @@ const myEmail = profile.links.find(link => link.label === 'Email')
           class="flex gap-2"
         >
           <Icon
-            :icon="profile.links.find(icon => icon.label === 'Email')?.icon"
+            :icon="
+              profile.links.find(icon => icon.label === 'Email')
+                ?.icon
+            "
           />{{ myEmail?.to.slice(7) }}
         </a>
       </h3>
       <p
         class="bg-default border-x-2 p-2 leading-relaxed tracking-wide text-pretty md:text-lg"
       >
-        I'm open for internships, collaborations, and interesting discussions.
+        I'm open for internships, collaborations, and interesting
+        discussions.
       </p>
     </section>
 

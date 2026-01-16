@@ -1,14 +1,14 @@
 <script setup>
 const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-  header: {
-    type: String,
-    required: false,
-    default: 'hidden',
-  },
+    id: {
+        type: String,
+        required: true,
+    },
+    header: {
+        type: String,
+        required: false,
+        default: 'hidden',
+    },
 })
 
 import { onMounted, onUnmounted } from 'vue'
@@ -18,19 +18,19 @@ import { setActiveSection } from '../composables/useActiveSection'
 let observer
 
 onMounted(() => {
-  observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setActiveSection(`#${props.id}`)
-      }
-    },
-    {
-      rootMargin: '-50% 0px -50% 0px',
-      threshold: 0,
-    },
-  )
+    observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                setActiveSection(`#${props.id}`)
+            }
+        },
+        {
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0,
+        },
+    )
 
-  observer.observe(document.getElementById(props.id))
+    observer.observe(document.getElementById(props.id))
 })
 
 onUnmounted(() => observer?.disconnect())

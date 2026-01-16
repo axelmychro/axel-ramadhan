@@ -8,22 +8,22 @@ import { navigation } from '../data/navigation'
 import { profile } from '../data/profile'
 
 const props = defineProps({
-  content: {
-    type: String,
-    required: true,
-  },
+    content: {
+        type: String,
+        required: true,
+    },
 })
 
 const navItem = computed(() =>
-  navigation.find(link => link.anchor === props.content),
+    navigation.find(link => link.anchor === props.content),
 )
 
 const profileItem = computed(() =>
-  profile.links.find(link => link.label === props.content),
+    profile.links.find(link => link.label === props.content),
 )
 
 const resolved = useResolvedLink(
-  navItem.value ?? profileItem.value ?? { to: props.content },
+    navItem.value ?? profileItem.value ?? { to: props.content },
 )
 </script>
 

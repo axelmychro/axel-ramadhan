@@ -1,25 +1,25 @@
 <script setup>
 import { useFormattedDate } from '../composables/useFormattedDate'
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: false,
-    default: undefined,
-  },
-  date: {
-    type: String,
-    required: false,
-    default: undefined,
-  },
-  icon: {
-    type: String,
-    required: false,
-    default: undefined,
-  },
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    date: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    icon: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
 })
 
 const formattedDate = useFormattedDate(props.date, { hideDay: true })
