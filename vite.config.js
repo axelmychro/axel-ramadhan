@@ -12,6 +12,7 @@ export default defineConfig({
     },
     plugins: [vue(), tailwindcss(), Components()],
     ssgOptions: {
+        entry: './src/main.js',
         script: 'async',
         formatting: 'minify',
         crittersOptions: {
