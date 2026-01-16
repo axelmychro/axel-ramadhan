@@ -2,19 +2,19 @@
 import { profile } from '../data/profile'
 
 const props = defineProps({
-    author: {
-        type: String,
-        required: true,
-    },
-    bio: {
-        type: String,
-        required: true,
-    },
-    picture: {
-        type: String,
-        required: false,
-        default: undefined,
-    },
+  author: {
+    type: String,
+    required: true,
+  },
+  bio: {
+    type: String,
+    required: true,
+  },
+  picture: {
+    type: String,
+    required: false,
+    default: undefined,
+  },
 })
 
 const githubLinkExists = profile.links.find(link => link.label === 'GitHub')?.to
@@ -25,9 +25,7 @@ const githubLinkExists = profile.links.find(link => link.label === 'GitHub')?.to
     <header class="flex flex-col items-center">
       <a
         :aria-label="
-          githubLinkExists
-            ? `Visit ${profile.name}'s GitHub`
-            : undefined
+          githubLinkExists ? `Visit ${profile.name}'s GitHub` : undefined
         "
         :href="githubLinkExists"
         target="_blank"
@@ -40,8 +38,7 @@ const githubLinkExists = profile.links.find(link => link.label === 'GitHub')?.to
             width="128"
             height="128"
             loading="lazy"
-            alt=""
-            role="none"
+            :alt="profile.name"
           >
         </figure>
       </a>
