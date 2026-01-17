@@ -1,47 +1,36 @@
 <script setup>
 import { Icon } from '@iconify/vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch } from 'vue'
 import { computed } from 'vue'
 
 import FolderShowcase from '../components/FolderShowcase.vue'
+import { activeSection } from '../composables/useActiveSection'
 import { profile } from '../data/profile'
 import { projects } from '../data/projects'
 
-const thisWholeSection = ref(null)
-const visible = ref(false)
+const hasEntered = ref(false)
 
-let observer
+watch(
+  () => activeSection.value,
+  section => {
+    if (section === '#projects') {
+      hasEntered.value = true
+    }
+  },
+  { immediate: true },
+)
 
-onMounted(() => {
-  observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        visible.value = true
-        observer.disconnect()
-      }
-    },
-    {
-      rootMargin: '0px 0px -40% 0px',
-    },
-  )
-  observer.observe(thisWholeSection.value)
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
-
-const otherProjects = computed(() => {
-  if (!visible.value) return []
-  return projects.slice(0, projects.length - 1)
-})
+const otherProjects = computed(() =>
+  hasEntered.value ? projects.slice(0, projects.length - 1) : [],
+)
 </script>
 
 <template>
   <div
-    ref="thisWholeSection"
-    :class="visible ? 'translate-y-0' : 'translate-y-8 opacity-0'"
-    class="flex size-full items-center justify-evenly transition-all duration-800 ease-out not-lg:flex-col"
+    :class="
+      hasEntered ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+    "
+    class="flex size-full items-center justify-evenly transition-all duration-500 ease-out not-lg:flex-col"
   >
     <div class="shrink-0">
       <span
@@ -56,7 +45,7 @@ const otherProjects = computed(() => {
 
     <div class="shrink-0 p-2">
       <div
-        :class="visible ? 'scale-100 opacity-100' : 'scale-97 opacity-0'"
+        :class="hasEntered ? 'scale-100 opacity-100' : 'scale-97 opacity-0'"
         class="bg-primary xs:pl-2 size-fit -rotate-2 rounded-tr-md border py-2 pr-2 font-mono leading-none outline-1 transition delay-400 duration-400"
       >
         <Icon
@@ -70,6 +59,7 @@ const otherProjects = computed(() => {
         name="fade-stagger"
         tag="ul"
         class="flex flex-col gap-2"
+        appear
       >
         <li
           v-for="(project, index) in otherProjects"
@@ -102,14 +92,14 @@ const otherProjects = computed(() => {
 <style scoped>
 .fade-stagger-enter-active {
   transition:
-    opacity 400ms ease-out,
-    scale 400ms ease-out;
+    opacity 500ms ease-out,
+    scale 500ms ease-out;
 }
 .fade-stagger-enter-from {
   opacity: 0;
   scale: 97%;
 }
 .fade-stagger-enter-active {
-  transition-delay: calc(var(--i) * 400ms + 800ms);
+  transition-delay: calc(var(--i) * 300ms + 1s);
 }
 </style>
