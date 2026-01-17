@@ -17,7 +17,7 @@ const footerLinks = [
 const resolvedLinks = computed(() =>
   footerLinks.map(link => ({
     ...link,
-    resolved: useResolvedLink(link).value,
+    resolved: useResolvedLink(link),
   })),
 )
 </script>

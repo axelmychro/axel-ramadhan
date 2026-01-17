@@ -22,8 +22,9 @@ const { showMenu } = useMenuState()
       class="sticky top-0 flex flex-1 items-center justify-end p-2 md:hidden"
     >
       <a
-        :href="home.anchor"
         class="flex-1"
+        :href="home.anchor"
+        aria-label="Home"
       ><Icon
         class="min-h-8 min-w-8 shrink-0"
         :icon="home.icon"
