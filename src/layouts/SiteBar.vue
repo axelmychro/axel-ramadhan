@@ -14,9 +14,9 @@ const { showMenu } = useMenuState()
   <header
     :class="[
       'top-0 right-0 left-0 not-md:fixed not-md:max-h-12 not-md:min-h-12 not-md:min-w-full',
-      'md:max-w-12 md:min-w-12 md:flex-col',
+      'md:max-w-12 md:min-w-12 md:flex-col md:justify-end',
     ]"
-    class="bg-default shadow-shadow-less z-50 flex shrink-0 items-center justify-start shadow-md"
+    class="bg-default shadow-shadow-less z-50 flex shrink-0 items-center shadow-md"
   >
     <nav
       class="sticky top-0 flex flex-1 items-center justify-end p-2 md:hidden"
@@ -37,7 +37,7 @@ const { showMenu } = useMenuState()
         showMenu ? 'not-md:translate-y-1/2' : 'not-md:translate-y-full',
         'top-0 right-0 bottom-0 left-0 not-md:fixed not-md:border-t-8 not-md:transition-transform not-md:duration-500 md:sticky md:flex',
       ]"
-      class="bg-default z-40 order-first min-w-12 flex-col overflow-auto pt-12 ease-out"
+      class="bg-default z-40 order-first min-w-12 flex-col overflow-auto ease-out"
     >
       <ul class="flex flex-col">
         <li
