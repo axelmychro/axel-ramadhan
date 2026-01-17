@@ -12,29 +12,21 @@ const props = defineProps({
   size: {
     type: String,
     required: false,
-    default: '8',
+    default: 'auto',
   },
 })
 </script>
 
 <template>
   <button
-    type="button"
     :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
-    class="flex shrink-0 cursor-pointer items-center justify-center"
+    class="inline shrink-0 cursor-pointer"
     @click="switchMode"
   >
     <Icon
-      v-if="isDark"
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
+      :class="`min-w-${props.size} min-h-${props.size}`"
       class="shrink-0"
-      icon="devicon:typescript"
-    />
-    <Icon
-      v-else
-      :class="props.size ? `min-w-${props.size} min-h-${props.size} ` : ''"
-      class="shrink-0"
-      icon="devicon:javascript"
+      :icon="isDark ? 'devicon:typescript' : 'devicon:javascript'"
     />
   </button>
 </template>

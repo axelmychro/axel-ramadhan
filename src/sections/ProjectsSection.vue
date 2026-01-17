@@ -44,6 +44,13 @@ const otherProjects = computed(() => {
     class="flex size-full items-center justify-evenly transition-all duration-800 ease-out not-lg:flex-col"
   >
     <div class="shrink-0">
+      <span
+        class="bg-primary/80 xs:pl-2 size-fit rounded-tr-md border-2 py-2 pr-2 font-mono leading-none"
+      ><Icon
+        class="inline"
+        icon="mdi:cube-outline"
+      />
+        Latest project:</span>
       <FolderShowcase />
     </div>
 

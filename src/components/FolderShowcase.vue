@@ -12,13 +12,6 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
 </script>
 
 <template>
-  <span
-    class="bg-primary/80 xs:pl-2 size-fit rounded-tr-md border-2 py-2 pr-2 font-mono leading-none"
-  ><Icon
-    class="inline"
-    icon="mdi:cube-outline"
-  />
-    Latest project:</span>
   <div
     class="xs:border-x-2 flex rounded-tr-sm rounded-b-sm border-y-2 not-lg:flex-col"
   >
