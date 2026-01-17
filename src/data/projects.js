@@ -1,4 +1,4 @@
-import krabyPreview from '../assets/images/krabypaty-tebingtinggi.png'
+import krabyPreview from '../assets/images/krabypaty-tebingtinggi.webp'
 
 export const projects = [
   {
