@@ -3,6 +3,7 @@ import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
+import ColorModeSwitch from '../components/ColorModeSwitch.vue'
 import { useResolvedLink } from '../composables/useResolvedLink'
 import { profile } from '../data/profile'
 import { site } from '../data/site'
@@ -23,24 +24,27 @@ const resolvedLinks = computed(() =>
 
 <template>
   <footer
-    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 py-8 not-sm:flex-col sm:px-8"
+    class="bg-invert text-default flex min-h-48 min-w-full shrink-0 items-center justify-between gap-8 px-2 py-8 not-sm:flex-col sm:px-8"
   >
-    <small>
+    <small class="flex flex-col gap-4">
       <a
-        class="flex flex-col gap-4"
+        class="font-display text-4xl leading-none"
         href="#"
       >
-        <span class="font-display text-4xl leading-none">{{ site.name }}</span>
-        <div class="text-base leading-none tracking-wide">
-          &copy;
-          <time :datetime="new Date()">{{ new Date().getFullYear() }}</time>
-          {{ profile.name }}
-        </div>
+        {{ site.name }}
       </a>
+      <div class="text-base leading-none tracking-wide">
+        &copy;
+        <time :datetime="new Date()">{{ new Date().getFullYear() }}</time>
+        {{ profile.name }}
+      </div>
+      <div class="flex items-center gap-2 text-lg">
+        Theme: <ColorModeSwitch size="6" />
+      </div>
     </small>
 
     <article>
-      <h4 class="text-center text-sm">
+      <h4 class="text-center text-lg">
         Not for business?
       </h4>
       <ul class="flex items-center justify-center gap-2">
