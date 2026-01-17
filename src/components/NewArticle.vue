@@ -40,6 +40,7 @@ const props = defineProps({
           height="32"
           role="none"
           aria-hidden="true"
+          loading="lazy"
         >
       </figure>
     </header>

@@ -54,6 +54,7 @@ const { latestProject, formattedLatestDate, repositoryUrl } = useProjects(
           :src="latestProject?.preview"
           width="256"
           alt="Latest project"
+          loading="lazy"
         >
       </a>
       <p
