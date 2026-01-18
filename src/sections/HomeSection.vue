@@ -11,38 +11,36 @@ const { latestProject } = useProjects(projects, profile.links)
   <article
     class="flex size-full items-center justify-evenly gap-2 not-lg:flex-col"
   >
-    <header class="flex justify-center">
-      <div class="flex flex-col sm:gap-2">
-        <ProfileCard
-          :author="profile.name"
-          :bio="profile.bio"
-          :picture="profile.picture"
+    <header class="flex flex-col justify-center sm:gap-2">
+      <ProfileCard
+        :author="profile.name"
+        :bio="profile.bio"
+        :picture="profile.picture"
+        class="not-sm:border-b-0"
+      />
+      <TransitionGroup
+        tag="div"
+        class="flex justify-between not-lg:flex-col sm:gap-2"
+        name="fade-stagger"
+        appear
+      >
+        <CTAButton
+          key="0"
+          :style="{ '--i': 0 }"
           class="not-sm:border-b-0"
+          content="Email"
         />
-        <TransitionGroup
-          tag="div"
-          class="flex justify-between not-lg:flex-col sm:gap-2"
-          name="fade-stagger"
-          appear
-        >
-          <CTAButton
-            key="0"
-            :style="{ '--i': 0 }"
-            class="not-sm:border-b-0"
-            content="Email"
-          />
-          <CTAButton
-            key="1"
-            :style="{ '--i': 1 }"
-            content="LinkedIn"
-          />
-          <CTAButton
-            key="2"
-            :style="{ '--i': 2 }"
-            content="Resume"
-          />
-        </TransitionGroup>
-      </div>
+        <CTAButton
+          key="1"
+          :style="{ '--i': 1 }"
+          content="LinkedIn"
+        />
+        <CTAButton
+          key="2"
+          :style="{ '--i': 2 }"
+          content="Resume"
+        />
+      </TransitionGroup>
     </header>
 
     <section class="flex flex-col justify-center sm:items-center">
