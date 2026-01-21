@@ -37,24 +37,31 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Zain';
+  font-family: 'Ubuntu Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/zain-v4-latin-regular.woff2') format('woff2');
+  src: url('../fonts/ubuntu-sans-v4-latin-regular.woff2') format('woff2');
 }
 @font-face {
   font-display: swap;
-  font-family: 'Zain';
+  font-family: 'Ubuntu Sans';
   font-style: italic;
   font-weight: 400;
-  src: url('/fonts/zain-v4-latin-italic.woff2') format('woff2');
+  src: url('../fonts/ubuntu-sans-v4-latin-italic.woff2') format('woff2');
 }
 @font-face {
   font-display: swap;
-  font-family: 'Zain';
+  font-family: 'Ubuntu Sans';
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/zain-v4-latin-700.woff2') format('woff2');
+  src: url('../fonts/ubuntu-sans-v4-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Ubuntu Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/ubuntu-sans-v4-latin-700italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -81,7 +88,7 @@
   --breakpoint-xs: 320px;
 
   --font-display: 'Dela Gothic One', display;
-  --font-sans: 'Zain', sans-serif;
+  --font-sans: 'Ubuuntu Sans', sans-serif;
   --font-serif: 'Oswald', serif;
   --font-mono: 'Fira Code', monospace;
 
