@@ -55,7 +55,7 @@ const { latestProject } = useProjects(projects, profile.links)
 
         <CTAButton content="#contact">
           <span class="text-base tracking-wide text-pretty">
-            I'm open for collaboration, <b>let's talk</b>
+            I'm open for collaboration, let's talk
           </span>
         </CTAButton>
       </div>
