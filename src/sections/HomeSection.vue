@@ -4,6 +4,7 @@ import ProfileCard from '../components/ProfileCard.vue'
 import { useProjects } from '../composables/useProjects'
 import { profile } from '../data/profile'
 import { projects } from '../data/projects'
+
 const { latestProject } = useProjects(projects, profile.links)
 </script>
 
@@ -18,96 +19,46 @@ const { latestProject } = useProjects(projects, profile.links)
         :picture="profile.picture"
         class="not-sm:border-b-0"
       />
-      <TransitionGroup
-        tag="div"
-        class="flex justify-between not-lg:flex-col sm:gap-2"
-        name="fade-stagger"
-        appear
-      >
+
+      <nav class="flex justify-between not-lg:flex-col sm:gap-2">
         <CTAButton
-          key="0"
-          :style="{ '--i': 0 }"
           class="not-sm:border-b-0"
           content="Email"
         />
-        <CTAButton
-          key="1"
-          :style="{ '--i': 1 }"
-          content="LinkedIn"
-        />
-        <CTAButton
-          key="2"
-          :style="{ '--i': 2 }"
-          content="Resume"
-        />
-      </TransitionGroup>
+        <CTAButton content="LinkedIn" />
+        <CTAButton content="Resume" />
+      </nav>
     </header>
 
     <section class="flex flex-col justify-center sm:items-center">
       <div class="flex flex-col sm:gap-2 lg:gap-6">
-        <Transition
-          name="fade-stagger"
-          appear
+        <CTAButton
+          class="not-sm:border-b-0"
+          content="#projects"
         >
-          <CTAButton
-            :style="{ '--i': 3 }"
-            class="not-sm:border-b-0"
-            content="#projects"
-          >
-            <span class="text-base tracking-wide text-pretty">
-              View latest:
-              <b class="font-bold">{{ latestProject.title }}</b></span>
-          </CTAButton>
-        </Transition>
+          <span class="text-base tracking-wide text-pretty">
+            View latest:
+            <b class="font-bold">{{ latestProject.title }}</b>
+          </span>
+        </CTAButton>
 
-        <TransitionGroup
-          class="flex justify-between not-sm:flex-col sm:gap-2 lg:gap-6"
-          tag="div"
-          name="fade-stagger"
-          appear
-        >
+        <div class="flex justify-between not-sm:flex-col sm:gap-2 lg:gap-6">
           <CTAButton
-            key="0"
-            :style="{ '--i': 4 }"
             class="not-sm:border-b-0"
             content="#about"
           />
           <CTAButton
-            key="1"
-            :style="{ '--i': 5 }"
             class="not-sm:border-b-0"
             content="#timeline"
           />
-        </TransitionGroup>
+        </div>
 
-        <Transition
-          name="fade-stagger"
-          appear
-        >
-          <CTAButton
-            :style="{ '--i': 6 }"
-            content="#contact"
-          >
-            <span class="text-base tracking-wide text-pretty">I'm open for collaboration, <b>let's talk</b></span>
-          </CTAButton>
-        </Transition>
+        <CTAButton content="#contact">
+          <span class="text-base tracking-wide text-pretty">
+            I'm open for collaboration, <b>let's talk</b>
+          </span>
+        </CTAButton>
       </div>
     </section>
   </article>
 </template>
-
-<style scoped>
-.fade-stagger-enter-from {
-  scale: 100%;
-  filter: drop-shadow(-2px 2px 0px var(--color-shadow));
-}
-.fade-stagger-active-enter {
-  transition: scale 400ms ease-out;
-  transition: filter 400ms ease-out;
-}
-.fade-stagger-enter-to {
-  transition-delay: calc(var(--i) * 400ms + 2s);
-  scale: 103%;
-  filter: drop-shadow(-6px 6px 0px var(--color-shadow-less));
-}
-</style>
