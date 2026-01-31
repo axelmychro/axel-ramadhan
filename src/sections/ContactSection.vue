@@ -10,7 +10,7 @@ const myEmail = profile.links.find(link => link.label === 'Email')
   <article class="size-fit max-w-xs">
     <header class="bg-primary border-2 p-2">
       <h2
-        class="font-display text-invert text-end text-xl leading-none tracking-tight text-balance uppercase md:text-2xl lg:text-2xl"
+        class="font-display text-invert text-end text-xl leading-none tracking-tight text-balance md:text-2xl lg:text-2xl"
       >
         Contact
       </h2>
