@@ -9,7 +9,7 @@ import { timeline } from '../data/timeline'
       class="bg-invert flex items-center justify-end rounded-t-sm px-6 py-2"
     >
       <h2
-        class="text-default font-display text-end text-base leading-none font-medium tracking-wide text-balance uppercase lg:text-2xl"
+        class="text-default font-display text-end text-base leading-none tracking-wide lg:text-2xl"
       >
         Timeline
       </h2>
