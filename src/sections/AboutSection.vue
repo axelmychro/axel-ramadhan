@@ -21,6 +21,7 @@ const newAboutCollection = [
   },
 ]
 </script>
+
 <template>
   <div class="flex size-full flex-col items-center justify-center gap-8">
     <NewArticle
@@ -48,19 +49,21 @@ const newAboutCollection = [
 
       <template v-else-if="item.id === 'about-site'">
         <p>
-          You may have noticed the familiar accent for these icons. Correct,
-          this site is essentially a love letter for
-          {{ isDark ? 'TypeScript' : 'JavaScript' }} and
+          Have you noticed the familiar accent? This site is essentially a love
+          letter for
+          {{ isDark ? 'TypeScript' : 'JavaScript' }} and the UI is me trying to
+          copy
           <a
             class="underline"
             href="https://www.gryphline.com"
             target="_blank"
             rel="noopener noreferrer"
-          >Gryphline</a>.
+          >Gryphline</a>
+          styles.
         </p>
         <p>
           Design aside, your ever-presence here is thanks to
-          <b>Vue wizardry</b> that clumps my
+          <b>Vue wizardry</b> that spices my
           <code>div Soups&trade;</code> nicely and thus finally be able to
           <i>hocus focus trulala</i> this very section.
         </p>
